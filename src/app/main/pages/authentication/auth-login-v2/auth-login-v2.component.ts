@@ -23,6 +23,8 @@ export class AuthLoginV2Component implements OnInit {
   public error = '';
   public passwordTextType: boolean;
 
+  isOtp = false;
+
   // Private
   private _unsubscribeAll: Subject<any>;
 
@@ -86,7 +88,7 @@ export class AuthLoginV2Component implements OnInit {
     // Login
     this.loading = true;
     this._authenticationService
-      .login(this.f.email.value, this.f.password.value)
+      .login("admin@demo.com", "admin")//(this.f.email.value, this.f.password.value)
       .pipe(first())
       .subscribe(
         data => {
@@ -107,8 +109,8 @@ export class AuthLoginV2Component implements OnInit {
    */
   ngOnInit(): void {
     this.loginForm = this._formBuilder.group({
-      email: ['admin@demo.com', [Validators.required, Validators.email]],
-      password: ['admin', Validators.required]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
     });
 
     // get return url from route parameters or default to '/'
