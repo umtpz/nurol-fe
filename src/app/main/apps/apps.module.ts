@@ -13,6 +13,9 @@ const routes: Routes = [
   {
     path: 'email',
     loadChildren: () => import('./email/email.module').then(m => m.EmailModule)
+  },{
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   {
     path: 'chat',

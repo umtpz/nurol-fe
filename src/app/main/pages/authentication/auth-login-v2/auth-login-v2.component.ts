@@ -82,7 +82,7 @@ export class AuthLoginV2Component implements OnInit {
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
-      return;
+      //return;
     }
 
     // Login

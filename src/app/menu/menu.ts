@@ -5,6 +5,13 @@ import { CoreMenu } from '@core/types';
 export const menu: CoreMenu[] = [
   // Dashboard
   {
+    id: 'home',
+    title: 'Anasayfa',
+    type: 'item',
+    icon: 'home',
+    url: 'apps/home'
+  },
+  {
     id: 'dashboard',
     title: 'Dashboard',
     translate: 'MENU.DASHBOARD.COLLAPSIBLE',
