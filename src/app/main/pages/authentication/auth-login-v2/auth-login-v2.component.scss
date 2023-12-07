@@ -21,3 +21,7 @@ input::placeholder {
   font-style: italic;
   padding: 8px 20px;
 }
+
+.parallax-bg-1, .parallax-bg-2{  
+  transition: transform .3s;
+}

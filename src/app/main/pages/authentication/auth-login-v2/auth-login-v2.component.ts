@@ -120,6 +120,33 @@ export class AuthLoginV2Component implements OnInit {
     this._coreConfigService.config.pipe(takeUntil(this._unsubscribeAll)).subscribe(config => {
       this.coreConfig = config;
     });
+
+
+    document.addEventListener("mousemove", parallax);
+    function parallax(event) {
+
+      this.querySelectorAll(".parallax-bg-1").forEach((shift) => {
+        if (event.pageX < window.innerWidth / 2)
+          shift.style.transform = `translateX(0px) translateY(0px)`;
+        else {
+          const x = ((window.innerWidth / 4) * 3 - event.pageX) / 180;
+          const y = (window.innerHeight - event.pageY) / 180;
+          shift.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        }
+      });
+      this.querySelectorAll(".parallax-bg-2").forEach((shift) => {
+        if (event.pageX < window.innerWidth / 2)
+          shift.style.transform = `translateX(0px) translateY(0px)`;
+        else {
+          const x = ((window.innerWidth / 4) * 3 - event.pageX) / 90;
+          const y = (window.innerHeight - event.pageY) / 90;
+          shift.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        }
+      });
+    }
+
+
+
   }
 
   /**
