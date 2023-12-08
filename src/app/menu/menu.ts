@@ -29,49 +29,49 @@ export const menu: CoreMenu[] = [
             title: 'Başvuru Gözlem',
             type: 'item',
             icon: 'circle',
-            url: 'apps/settings'
+            url: 'apps/umtpz'
           },
           {
             id: 'customer-tracking',
             title: 'Müşteri Gözlem',
             type: 'item',
             icon: 'circle',
-            url: 'apps/settings'
+            url: 'apps/umtpz'
           },
           {
             id: 'cell-update',
             title: 'Müşteri Telefonu Güncelleme',
             type: 'item',
             icon: 'circle',
-            url: 'apps/settings'
+            url: 'apps/umtpz'
           },
           {
             id: 'doc-control',
             title: 'Doküman Kontrol',
             type: 'item',
             icon: 'circle',
-            url: 'apps/settings'
+            url: 'apps/umtpz'
           },
           {
             id: 'assignment',
             title: 'Tahsis',
             type: 'item',
             icon: 'circle',
-            url: 'apps/settings'
+            url: 'apps/umtpz'
           },
           {
             id: 'information',
             title: 'İstihbarat',
             type: 'item',
             icon: 'circle',
-            url: 'apps/settings'
+            url: 'apps/umtpz'
           },
           {
             id: 'report',
             title: 'Raporlar',
             type: 'item',
             icon: 'circle',
-            url: 'apps/settings'
+            url: 'apps/umtpz'
           },
         ]
       },
@@ -80,7 +80,7 @@ export const menu: CoreMenu[] = [
         title: 'Pazarlama',
         type: 'item',
         icon: 'archive',
-        url: 'apps/settings'
+        url: 'apps/umtpz'
       },
     ]
   },
@@ -95,7 +95,7 @@ export const menu: CoreMenu[] = [
         title: 'Admin',
         type: 'item',
         icon: 'user',
-        url: 'apps/settings'
+        url: 'apps/umtpz'
       },
       {
         id: 'settings',
