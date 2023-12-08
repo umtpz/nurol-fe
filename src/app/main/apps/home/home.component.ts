@@ -84,6 +84,7 @@ export class HomeComponent implements OnInit {
     }
   };
   
+  
   constructor(private _coreConfigService: CoreConfigService) {
     this.apexLineChart = {
       series: [
@@ -152,6 +153,10 @@ export class HomeComponent implements OnInit {
         {
           name: 'Kullandırım Hacim (000 TL)',
           data: [50, 100, 117, 160]
+        },
+        {
+          name: '',
+          data: [0,0,0,0]
         }
       ],
       chart: {
@@ -177,7 +182,7 @@ export class HomeComponent implements OnInit {
         strokeColors: [colors.solid.white],
         colors: [colors.solid.warning]
       },
-      colors: ["#f00", "#f00", this.chartColors.area.series3],
+      colors: ["#f00", "rgba(0,0,0,0)", this.chartColors.area.series3],
       dataLabels: {
         enabled: false
       },

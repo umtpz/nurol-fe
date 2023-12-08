@@ -31,20 +31,20 @@
     <div class="d-flex justify-content-between">
         <section id="apex-line-charts" style="width: calc(50% - 16px);">
             <div class="card" style="border-radius: 16px; border: solid 1px #e5e5e5;">
-                <!-- <div
-                    class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
+                <div
+                    class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start" style="margin-bottom: -2rem;">
                     <div>
-                        <h4 class="card-title mb-25">Balance</h4>
-                        <span class="card-subtitle text-muted">Commercial networks & enterprises</span>
+                        <h4 class="card-title">Bayiler Toplam</h4>
+                        <!-- <span class="card-subtitle text-muted">Commercial networks & enterprises</span> -->
                     </div>
-                    <div class="d-flex align-items-center flex-wrap mt-sm-0 mt-1">
+                    <!-- <div class="d-flex align-items-center flex-wrap mt-sm-0 mt-1">
                         <h5 class="font-weight-bolder mb-0 mr-1">$ 100,000</h5>
                         <div class="badge badge-light-secondary">
                             <i class="text-danger font-small-3" data-feather="arrow-down"></i>
                             <span class="align-middle">20%</span>
                         </div>
-                    </div>
-                </div> -->
+                    </div> -->
+                </div>
                 <div class="card-body" style="padding: 12px;">
                     <div id="line-chart" (window:resize)="onResize($event)" #apexLineChartRef>
                         <apx-chart [series]="apexLineChart.series" [chart]="{
@@ -66,20 +66,12 @@
         </section>
         <section id="apex-line-charts" style="width: calc(50% - 16px);">
             <div class="card" style="border-radius: 16px; border: solid 1px #e5e5e5;">
-                <!-- <div
-                    class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
+                <div
+                    class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start" style="margin-bottom: -2rem;">
                     <div>
-                        <h4 class="card-title mb-25">Balance</h4>
-                        <span class="card-subtitle text-muted">Commercial networks & enterprises</span>
+                        <h4 class="card-title">Bayiler Toplam</h4>
                     </div>
-                    <div class="d-flex align-items-center flex-wrap mt-sm-0 mt-1">
-                        <h5 class="font-weight-bolder mb-0 mr-1">$ 100,000</h5>
-                        <div class="badge badge-light-secondary">
-                            <i class="text-danger font-small-3" data-feather="arrow-down"></i>
-                            <span class="align-middle">20%</span>
-                        </div>
-                    </div>
-                </div> -->
+                </div>
                 <div class="card-body" style="padding: 12px;">
                     <div id="line-chart" (window:resize)="onResize($event)" #apexLineChartRef>
                         <apx-chart [series]="apexLineChart1.series" [chart]="{
@@ -111,13 +103,13 @@
         <div class="d-flex" style="align-items: center; gap: 12px; line-height: 1; font-weight: bold; color: black;">
             <img src="assets/images/icons/file_approved.png" style="width: 36px;" />
             <div class="d-flex" style="align-items: end; gap: 12px;">İstihbarat<h3
-                    style="margin-bottom: 0; color: #ff4242; line-height: 1; font-weight: bold;">15</h3>
+                    style="margin-bottom: 0; color: #ff4242; line-height: 1; font-weight: bold;">5</h3>
             </div>
         </div>
         <div class="d-flex" style="align-items: center; gap: 12px; line-height: 1; font-weight: bold; color: black;">
             <img src="assets/images/icons/file_approved.png" style="width: 36px;" />
             <div class="d-flex" style="align-items: end; gap: 12px;">Evrak Kontrol<h3
-                    style="margin-bottom: 0; color: #ff4242; line-height: 1; font-weight: bold;">15</h3>
+                    style="margin-bottom: 0; color: #ff4242; line-height: 1; font-weight: bold;">11</h3>
             </div>
         </div>
     </div>
