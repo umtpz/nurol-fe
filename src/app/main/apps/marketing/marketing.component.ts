@@ -29,7 +29,7 @@ export class MarketingComponent implements OnInit {
     { id: 3, brand: "", value: "Zayıf", category: "", status: "inactive" },
     { id: 4, brand: "", value: "", category: "", status: "active" }
   ]
-  brandTab = 1
+  brandTab = 0
 
   financeItems = [
     { id: 1, financeType:"", docName:"", docCategory:"", docType:"", docProgress:"", status: "inactive" },
