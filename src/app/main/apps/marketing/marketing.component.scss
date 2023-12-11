@@ -80,13 +80,28 @@ button {
     }
 }
 
+.selection {
+    background: #1c4a84;
+    color: white;
+    padding: 4px 24px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: solid 2px #1c4a84;
+}
+
+.selection:hover {
+    opacity: .7;
+    cursor: pointer;
+}
+
 .category-pick-container {
     height: calc(100% - 16px);
     margin: 0;
     margin-top: -16px;
     border-radius: 16px;
     padding: 4px 8px;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .arrows {
@@ -96,4 +111,17 @@ button {
 .arrows:hover {
     cursor: pointer;
     opacity: .7;
+}
+
+.score-inputs{
+    text-align: center;
+}
+
+.score-inputs input{
+    font-size: 12px;
+    width: 64px;
+    border: solid 1px #ddd;
+    text-align: center;
+    border-radius: 16px;
+    padding: 4px;
 }

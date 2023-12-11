@@ -5,6 +5,7 @@
         <select [(ngModel)]="selectedAction" (ngModelChange)="onActionChange($event)" style="margin-bottom: 0;">
             <option value="dealer">Bayi</option>
             <option value="category">Ürün Kategorisi</option>
+            <option value="brand">Marka</option>
         </select>
 
         <select *ngIf="selectedAction == 'category'" style="margin-left: 16px; margin-bottom: 0;">
@@ -17,6 +18,7 @@
     </div>
 
     <div class="col-12 results-table mt-3 p-0">
+        <!--Bayi-->
         <table *ngIf="selectedAction == 'dealer'">
             <thead>
                 <tr>
@@ -44,6 +46,8 @@
                 </tr>
             </tbody>
         </table>
+        <!--Bayi-->
+        <!--Katgori-->
         <table *ngIf="selectedAction == 'category'">
             <thead>
                 <tr>
@@ -77,6 +81,36 @@
                 </tr>
             </tbody>
         </table>
+        <!--Kategori-->
+        <!--Marka-->
+        <table *ngIf="selectedAction == 'brand' && brandTab == 0">
+            <thead>
+                <tr>
+                    <th>Marka</th>
+                    <th>Değer</th>
+                    <th>Ürün Kategorileri</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table row -->
+                <tr *ngFor="let item of brandItems; let i = index;">
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}" style=" border-left: solid 2px #efefef">{{
+                        item.brand }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.value }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.category }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}" class="d-flex justify-content-center"
+                        style="gap: 6px; border-right: solid 2px #efefef;">
+                        <button class="action-button" (click)="openDropdown(item.id)">Güncelle</button>
+                        <button *ngIf="item.status != 'active'" class="action-button"
+                            (click)="openDropdown(item.requestId)">Aktif Et</button>
+                        <button *ngIf="item.status == 'active'" class="action-button"
+                            (click)="openDropdown(item.requestId)">İnaktif Et</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--Marka-->
     </div>
     <!--Bayi-->
     <div class="col-12 d-flex justify-content-between mt-3 inputs" style="gap: 32px;"
@@ -117,9 +151,10 @@
                 <small>Siemens</small>
                 <small>Miele</small>
             </div>
-            <div class="d-flex flex-column align-items-center justify-content-center col-2 category-pick-container" style="gap: 16px;">
-                <img class="arrows" src="assets/images/icons/arrow-right-circle.svg"/>
-                <img class="arrows" src="assets/images/icons/arrow-left-circle.svg"/>
+            <div class="d-flex flex-column align-items-center justify-content-center col-2 category-pick-container"
+                style="gap: 16px;">
+                <img class="arrows" src="assets/images/icons/arrow-right-circle.svg" />
+                <img class="arrows" src="assets/images/icons/arrow-left-circle.svg" />
             </div>
             <div class="col-5 category-pick-container" style="border: solid 2px #ccc;">
                 <small>Profilo</small>
@@ -159,6 +194,88 @@
         </div>
     </div>
     <!--Kategori-->
+    <!--Marka-->
+    <div *ngIf="selectedAction == 'brand'" class="d-flex justify-content-center mt-3" style="gap:16px">
+        <div class="selection" (click)="brandTabSelection(0)"
+            [ngStyle]="brandTab != 0 && {'color':'#1c4a84','background':'white'}">Marka
+            Tanımı</div>
+        <div class="selection" (click)="brandTabSelection(1)"
+            [ngStyle]="brandTab != 1 && {'color':'#1c4a84','background':'white'}">Marka
+            Ürün Stok Tanımı</div>
+    </div>
+    <!--Marka/Tanım-->
+    <div *ngIf="selectedAction == 'brand' && brandTab == 0" class="col-8 d-flex justify-content-between mt-3 inputs"
+        style="gap: 32px;">
+        <div style="flex: 1;">
+            <input placeholder="Marka" />
+            <select style="width: 100%;">
+                <option value="" disabled selected>Değer</option>
+                <option value="low">Zayıf</option>
+                <option value="mid">Orta</option>
+                <option value="high">Güçlü</option>
+            </select>
+        </div>
+        <div class="d-flex flex-row align-items-center" style="flex: 1;">
+            <div class="col-5 d-flex flex-column category-pick-container" style="border: solid 2px #ccc;">
+                <small style="color: red">Isıtma/Soğutma</small>
+                <small>Beyaz Eşya</small>
+                <small>Elektronik</small>
+                <small>Ev Yenileme</small>
+                <small>Oto İhtiyaç</small>
+                <small>Medikal/Sağlık</small>
+                <small>Tatil&Eğlence</small>
+                <small>Eğitim</small>
+                <small>Lüks Ürün</small>
+                <small>Oto İhtiyaç</small>
+                <small>Medikal/Sağlık</small>
+                <small>Tatil&Eğlence</small>
+                <small>Eğitim</small>
+                <small>Lüks Ürün</small>
+            </div>
+            <div class="d-flex flex-column align-items-center justify-content-center col-2 category-pick-container"
+                style="gap: 16px;">
+                <img class="arrows" src="assets/images/icons/arrow-right-circle.svg" />
+                <img class="arrows" src="assets/images/icons/arrow-left-circle.svg" />
+            </div>
+            <div class="col-5 category-pick-container" style="border: solid 2px #ccc;">
+                <small>Profilo</small>
+            </div>
+        </div>
+    </div>
+    <!--Marka/Tanım-->
+    <!--Marka/Skor-->
+    <div *ngIf="selectedAction == 'brand' && brandTab == 1" class="col-6 mt-3" style="min-width: 375px; font-weight: bold; color: #1c4a84; font-size: 12px; border: solid 2px #ddd; padding: 0;">
+        <div class="col-12 d-flex" style="text-align: center; padding: 8px; background: #efefef; margin: 0;">
+            <div style="flex:1"></div>
+            <div style="flex:1">Very Safe (VS)</div>
+            <div style="flex:1">Safe (S)</div>
+            <div style="flex:1">Unsafe (U)</div>
+            <div style="flex:1">Very Unsafe (VU)</div>
+        </div>
+        <div class="col-12 d-flex score-inputs align-items-center" style="padding: 8px;">
+            <div style="flex:1">Güçlü</div>
+            <div style="flex:1"><input value="VS" /></div>
+            <div style="flex:1"><input value="VS" /></div>
+            <div style="flex:1"><input value="S" /></div>
+            <div style="flex:1"><input value="VU" /></div>
+        </div>
+        <div class="col-12 d-flex score-inputs align-items-center" style="padding: 8px; background: #efefef;">
+            <div style="flex:1">Orta</div>
+            <div style="flex:1"><input value="VS" /></div>
+            <div style="flex:1"><input value="S" /></div>
+            <div style="flex:1"><input value="US" /></div>
+            <div style="flex:1"><input value="VU" /></div>
+        </div>
+        <div class="col-12 d-flex score-inputs align-items-center" style="padding: 8px;">
+            <div style="flex:1">Zayıf</div>
+            <div style="flex:1"><input value="US" /></div>
+            <div style="flex:1"><input value="US" /></div>
+            <div style="flex:1"><input value="US" /></div>
+            <div style="flex:1"><input value="VU" /></div>
+        </div>
+    </div>
+    <!--Marka/Skor-->
+    <!--Marka-->
     <div class="col-12 d-flex justify-content-end">
         <button class="action-button" style="width: 108px;">Ekle / Kaydet</button>
     </div>
