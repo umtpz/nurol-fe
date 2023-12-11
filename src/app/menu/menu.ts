@@ -93,9 +93,24 @@ export const menu: CoreMenu[] = [
       {
         id: 'admin',
         title: 'Admin',
-        type: 'item',
+        type: 'collapsible',
         icon: 'user',
-        url: 'apps/umtpz'
+        children: [
+          { 
+            id: 'user-description',
+            title: 'Kullanıcı Tanımlama',
+            type: 'item',
+            icon: 'circle',
+            url: 'apps/user-description'
+          },
+          { 
+            id: 'parameters',
+            title: 'Parametreler',
+            type: 'item',
+            icon: 'circle',
+            url: 'apps/parameters'
+          },
+        ]
       },
       {
         id: 'settings',
