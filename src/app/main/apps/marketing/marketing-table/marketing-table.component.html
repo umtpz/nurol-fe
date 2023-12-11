@@ -1,0 +1,30 @@
+<div class="results-table">
+    <table>
+        <thead>
+            <tr>
+                <th>Ad Soyad</th>
+                <th>TC Kimlik No</th>
+                <th>Doğum Tarihi</th>
+                <th>E-Posta Adresi</th>
+                <th>Cep Telefonu</th>
+                <th>Yetki</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table row -->
+            <tr *ngFor="let item of items; let i = index;">
+                <td [ngStyle]="i%2==1 && {'background':'#efefef'}" style=" border-left: solid 2px #efefef">{{ item.name }}</td>
+                <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.id }}</td>
+                <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.birthday }}</td>
+                <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.mail }}</td>
+                <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.phone }}</td>
+                <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.priority }}</td>
+                <td [ngStyle]="i%2==1 && {'background':'#efefef'}" class="d-flex justify-content-center" style="gap: 6px; border-right: solid 2px #efefef;">
+                    <button class="action-button" (click)="openDropdown(item.requestId)">Güncelle</button>
+                    <button class="action-button" (click)="openDropdown(item.requestId)">Aktif Et</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

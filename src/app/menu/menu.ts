@@ -80,7 +80,7 @@ export const menu: CoreMenu[] = [
         title: 'Pazarlama',
         type: 'item',
         icon: 'archive',
-        url: 'apps/umtpz'
+        url: 'apps/marketing'
       },
     ]
   },

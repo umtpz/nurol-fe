@@ -1,0 +1,165 @@
+<div class="col-12 p-4 card d-inline-flex flex-column align-items-center" style="background: white;">
+
+    <div class="d-flex justify-content-center align-items-center" *ngIf="showActionDropdown">
+        <!-- <select [(ngModel)]="selectedAction" (ngModelChange)="onActionChange($event)"> -->
+        <select [(ngModel)]="selectedAction" (ngModelChange)="onActionChange($event)" style="margin-bottom: 0;">
+            <option value="dealer">Bayi</option>
+            <option value="category">Ürün Kategorisi</option>
+        </select>
+
+        <select *ngIf="selectedAction == 'category'" style="margin-left: 16px; margin-bottom: 0;">
+            <option value="" disabled selected>Ürün Adı</option>
+            <option value="a">A</option>
+            <option value="b">B</option>
+        </select>
+
+        <button class="action-button" style="margin-left: 16px; height: 24px;">Getir</button>
+    </div>
+
+    <div class="col-12 results-table mt-3 p-0">
+        <table *ngIf="selectedAction == 'dealer'">
+            <thead>
+                <tr>
+                    <th>Bayi Kodu</th>
+                    <th>Bayi Adı</th>
+                    <th>Finansman Türü</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table row -->
+                <tr *ngFor="let item of dealerItems; let i = index;">
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}" style=" border-left: solid 2px #efefef">{{
+                        item.dealerId }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.dealerName }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.financial }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}" class="d-flex justify-content-center"
+                        style="gap: 6px; border-right: solid 2px #efefef;">
+                        <button class="action-button" (click)="openDropdown(item.id)">Güncelle</button>
+                        <button *ngIf="item.status != 'active'" class="action-button"
+                            (click)="openDropdown(item.requestId)">Aktif Et</button>
+                        <button *ngIf="item.status == 'active'" class="action-button"
+                            (click)="openDropdown(item.requestId)">İnaktif Et</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table *ngIf="selectedAction == 'category'">
+            <thead>
+                <tr>
+                    <th>Ad Soyad</th>
+                    <th>TC Kimlik No</th>
+                    <th>Doğum Tarihi</th>
+                    <th>E-Posta Adresi</th>
+                    <th>Cep Telefonu</th>
+                    <th>Yetki</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table row -->
+                <tr *ngFor="let item of items; let i = index;">
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}" style=" border-left: solid 2px #efefef">{{
+                        item.name }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.id }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.birthday }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.mail }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.phone }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.priority }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}" class="d-flex justify-content-center"
+                        style="gap: 6px; border-right: solid 2px #efefef;">
+                        <button class="action-button" (click)="openDropdown(item.requestId)">Güncelle</button>
+                        <button *ngIf="item.status != 'active'" class="action-button"
+                            (click)="openDropdown(item.requestId)">Aktif Et</button>
+                        <button *ngIf="item.status == 'active'" class="action-button"
+                            (click)="openDropdown(item.requestId)">İnaktif Et</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--Bayi-->
+    <div class="col-12 d-flex justify-content-between mt-3 inputs" style="gap: 32px;"
+        *ngIf="selectedAction == 'dealer'">
+        <div style="flex: 1;">
+            <input placeholder="Bayi Adı" />
+            <input placeholder="Bayi Kodu" />
+            <input placeholder="Ticari Ünvan" />
+            <select style="width: 100%;">
+                <option value="" disabled selected>Bayi Kategorisi</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+            </select>
+        </div>
+        <div style="flex: 1;">
+            <select style="width: 100%;">
+                <option value="" disabled selected>Finansman Türü</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+            </select>
+            <select style="width: 100%;">
+                <option value="" disabled selected>Bayi VIP</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+            </select>
+            <select style="width: 100%;">
+                <option value="" disabled selected>Bayi İl</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+            </select>
+            <input type="date" placeholder="Açılış Tarigi gg/aa/yyyy" />
+        </div>
+        <div class="d-flex flex-row align-items-center" style="flex: 1;">
+            <div class="col-5 d-flex flex-column category-pick-container" style="border: solid 2px #ccc;">
+                <small style="color: red">Arçelik</small>
+                <small>Vestel</small>
+                <small>Bosch</small>
+                <small>Siemens</small>
+                <small>Miele</small>
+            </div>
+            <div class="d-flex flex-column align-items-center justify-content-center col-2 category-pick-container" style="gap: 16px;">
+                <img class="arrows" src="assets/images/icons/arrow-right-circle.svg"/>
+                <img class="arrows" src="assets/images/icons/arrow-left-circle.svg"/>
+            </div>
+            <div class="col-5 category-pick-container" style="border: solid 2px #ccc;">
+                <small>Profilo</small>
+            </div>
+        </div>
+    </div>
+    <!--Bayi-->
+    <!--Kategori-->
+    <div class="col-6 d-flex justify-content-between mt-3 inputs" style="gap: 32px;"
+        *ngIf="selectedAction == 'category'">
+        <div style="flex: 1;">
+            <input placeholder="Ürün Kategori Kodu" />
+            <input placeholder="Ürün Kodu" />
+            <select style="width: 100%;">
+                <option value="" disabled selected>Teslim Durumu</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+            </select>
+            <select style="width: 100%;">
+                <option value="" disabled selected>Ürün Kategori Skoru</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+            </select>
+        </div>
+        <div style="flex: 1;">
+            <select class style="width: 100%;">
+                <option value="" disabled selected>Ürün Kategori Adı</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+            </select>
+            <select style="width: 100%;">
+                <option value="" disabled selected>Ürün Adı</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+            </select>
+            <input placeholder="Riskli Ürün Adedi" />
+        </div>
+    </div>
+    <!--Kategori-->
+    <div class="col-12 d-flex justify-content-end">
+        <button class="action-button" style="width: 108px;">Ekle / Kaydet</button>
+    </div>
+</div>
