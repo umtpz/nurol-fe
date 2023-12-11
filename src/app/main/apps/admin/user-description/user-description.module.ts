@@ -13,6 +13,7 @@ import { ContentHeaderModule } from 'app/layout/components/content-header/conten
 
 import { ApexComponent } from 'app/main/charts-and-maps/charts/apex//apex.component';
 import { UserDescriptionComponent } from './user-description.component';
+import { FormsModule } from '@angular/forms';
 
 // routing
 const routes: Routes = [
@@ -33,7 +34,8 @@ const routes: Routes = [
     CardSnippetModule,
     Ng2FlatpickrModule,
     CoreCommonModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ]
 })
 export class UserDescriptionModule {}

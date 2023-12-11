@@ -1,0 +1,111 @@
+.user-table {
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    th, td {
+      padding: 10px 20px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      border-right: 3px solid #486c9b;
+    }
+    th {
+      background-color: #1d4a84;
+      color: white;
+      border-right: 3px solid #ffffff;
+    }
+    tr:hover {
+      background-color: #bcbdbc !important;
+      transition: all ease 0.1s;
+    }
+
+    tr:nth-child(odd) {
+        background-color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #eff0ef;
+    }
+
+    .actions {
+        border-right: none;
+    }
+  }
+  
+  .update-btn, .activate-btn {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .update-btn {
+    background-color: #1d4a84;
+    color: white;
+  }
+  
+  .activate-btn {
+    background-color: #1d4a84;
+    color: white;
+  }
+  
+  .inactivate-btn {
+    background-color: #dc3545;
+    color: white;
+  }
+
+  .user-form {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+
+      input, select {
+        width: 100%;
+        border-radius: 20px;
+      }
+    }
+  
+    .form-group {
+      flex: 1;
+    }
+  
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+  
+      &:focus {
+        border-color: #80bdff;
+        outline: none;
+      }
+    }
+  
+    .btn-submit {
+      padding: 4px 10px;
+      text-align: right;
+      border: none;
+      background-color: #1d4a84;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+
+  .add-save-button {
+    margin-top: 0.5rem;
+    justify-content: end !important;
+  }

@@ -1,1 +1,67 @@
-<p>user-description works!</p>
+<!-- User Table -->
+<table class="user-table">
+    <thead>
+      <tr>
+        <th>Sicil Kodu</th>
+        <th>Ad Soyad</th>
+        <th>TC Kimlik No</th>
+        <th>E-Posta Adresi</th>
+        <th>Cep Telefonu</th>
+        <th>Rol</th>
+        <th>İşlem</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.identityNumber }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.role }}</td>
+        <td class="actions">
+          <button class="update-btn" (click)="selectUser(user)">Güncelle</button>
+          <button class="activate-btn">Aktif Et</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- User Form -->
+  <form class="user-form">
+    <div class="user-form-container" style="width: 65%;">
+        <div class="form-row">
+        <div class="form-group">
+            <input type="text" placeholder="Ad Soyad" class="form-control" [(ngModel)]="selectedUser.name" name="name">
+        </div>
+        <div class="form-group">
+            <input type="text" placeholder="TC Kimlik No" class="form-control" [(ngModel)]="selectedUser.identityNumber" name="identityNumber">
+        </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group">
+            <input type="email" placeholder="E-Posta Adresi" class="form-control" [(ngModel)]="selectedUser.email" name="email">
+        </div>
+        <div class="form-group">
+            <input type="tel" placeholder="Cep Telefonu" class="form-control"  [(ngModel)]="selectedUser.phone" name="phone">
+        </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group">
+            <input type="text" placeholder="Sicil Kodu" class="form-control" [(ngModel)]="selectedUser.id" name="id">
+        </div>
+        <div class="form-group">
+            <select class="form-control" [(ngModel)]="selectedUser.role" name="role">
+                <option [ngValue]="'role'" disabled>Rol</option>
+                <option [ngValue]="'Admin'">Admin</option>
+                <option [ngValue]="'Pazarlama'">Pazarlama</option>
+                <option [ngValue]="'Operasyon'">Operasyon</option>
+                <option [ngValue]="'Gözlem'">Gözlem</option>
+              </select>
+        </div>
+        </div>
+        <div class="form-row add-save-button">
+            <button type="submit" class="btn-submit">Ekle / Kaydet</button>
+        </div>
+    </div>
+  </form>
