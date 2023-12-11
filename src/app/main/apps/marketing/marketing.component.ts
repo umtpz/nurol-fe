@@ -13,7 +13,7 @@ export class MarketingComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  selectedAction = "brand"
+  selectedAction = "finance"
   showActionDropdown = true
 
   items = [
@@ -30,6 +30,13 @@ export class MarketingComponent implements OnInit {
     { id: 4, brand: "", value: "", category: "", status: "active" }
   ]
   brandTab = 1
+
+  financeItems = [
+    { id: 1, financeType:"", docName:"", docCategory:"", docType:"", docProgress:"", status: "inactive" },
+    { id: 2, financeType:"", docName:"", docCategory:"", docType:"", docProgress:"", status: "inactive" },
+    { id: 3, financeType:"", docName:"", docCategory:"", docType:"", docProgress:"", status: "inactive" },
+    { id: 4, financeType:"", docName:"", docCategory:"", docType:"", docProgress:"", status: "inactive" },
+  ]
 
   onActionChanged() {
 

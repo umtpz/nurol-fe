@@ -6,6 +6,7 @@
             <option value="dealer">Bayi</option>
             <option value="category">Ürün Kategorisi</option>
             <option value="brand">Marka</option>
+            <option value="finance">Finansman Türü</option>
         </select>
 
         <select *ngIf="selectedAction == 'category'" style="margin-left: 16px; margin-bottom: 0;">
@@ -111,6 +112,42 @@
             </tbody>
         </table>
         <!--Marka-->
+        <!--Finans-->
+        <table *ngIf="selectedAction == 'finance'">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Finansman Türü</th>
+                    <th>Döküman Adı</th>
+                    <th>Döküman Türü</th>
+                    <th>Döküman Tipi</th>
+                    <th>Aşama</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table row -->
+                <tr *ngFor="let item of financeItems; let i = index;">
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}" style=" border-left: solid 2px #efefef">{{
+                        item.id }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.financeType }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.docName }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.docCategory }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.docType }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}">{{ item.docProgress }}</td>
+                    <td [ngStyle]="i%2==1 && {'background':'#efefef'}" class="d-flex justify-content-center"
+                        style="gap: 6px; border-right: solid 2px #efefef;">
+                        <button class="action-button">Görüntüle</button>
+                        <button class="action-button" (click)="openDropdown(item.id)">Güncelle</button>
+                        <button *ngIf="item.status != 'active'" class="action-button"
+                            (click)="openDropdown(item.requestId)">Aktif Et</button>
+                        <button *ngIf="item.status == 'active'" class="action-button"
+                            (click)="openDropdown(item.requestId)">İnaktif Et</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--Finans-->
     </div>
     <!--Bayi-->
     <div class="col-12 d-flex justify-content-between mt-3 inputs" style="gap: 32px;"
@@ -203,6 +240,7 @@
             [ngStyle]="brandTab != 1 && {'color':'#1c4a84','background':'white'}">Marka
             Ürün Stok Tanımı</div>
     </div>
+    <!--Marka-->
     <!--Marka/Tanım-->
     <div *ngIf="selectedAction == 'brand' && brandTab == 0" class="col-8 d-flex justify-content-between mt-3 inputs"
         style="gap: 32px;">
@@ -244,7 +282,8 @@
     </div>
     <!--Marka/Tanım-->
     <!--Marka/Skor-->
-    <div *ngIf="selectedAction == 'brand' && brandTab == 1" class="col-6 mt-3" style="min-width: 375px; font-weight: bold; color: #1c4a84; font-size: 12px; border: solid 2px #ddd; padding: 0;">
+    <div *ngIf="selectedAction == 'brand' && brandTab == 1" class="col-6 mt-3"
+        style="min-width: 375px; font-weight: bold; color: #1c4a84; font-size: 12px; border: solid 2px #ddd; padding: 0;">
         <div class="col-12 d-flex" style="text-align: center; padding: 8px; background: #efefef; margin: 0;">
             <div style="flex:1"></div>
             <div style="flex:1">Very Safe (VS)</div>
@@ -275,7 +314,42 @@
         </div>
     </div>
     <!--Marka/Skor-->
-    <!--Marka-->
+    <!--Finansman-->
+    <div class="col-6 d-flex justify-content-between mt-3 inputs" style="gap: 32px;"
+        *ngIf="selectedAction == 'finance'">
+        <div style="flex: 1;">
+            <select style="width: 100%; position: relative;">
+                <option value="" disabled selected>Finansman Türü</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+            </select>
+            <select style="width: 100%;">
+                <option value="" disabled selected>Döküman Tipi</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+            </select>
+        </div>
+        <div style="flex: 1;">
+            <div style="position: relative;">
+                <select class style="width: 100%;">
+                    <option value="" disabled selected>Döküman Türü</option>
+                    <option value="a">A</option>
+                    <option value="b">B</option>
+                </select>
+                <button class="action-button"
+                    style="position: absolute; right: -128px; top:6px; width: 108px; background: #ee1e25;">İçerik</button>
+            </div>
+            <select style="width: 100%;">
+                <option value="" disabled selected>Aşama</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-6 inputs">
+        <input placeholder="Döküman Adı" />
+    </div>
+    <!--Finansman-->
     <div class="col-12 d-flex justify-content-end">
         <button class="action-button" style="width: 108px;">Ekle / Kaydet</button>
     </div>
