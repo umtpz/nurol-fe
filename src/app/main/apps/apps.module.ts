@@ -7,6 +7,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
+import { AdminComponent } from './admin/admin.component';
 
 // routing
 const routes: Routes = [
@@ -49,6 +50,22 @@ const routes: Routes = [
   {
     path: 'user',
     loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+  },
+  {
+    path: 'user-description',
+    loadChildren: () => import('./admin/user-description/user-description.module').then(m => m.UserDescriptionModule)
+  },
+  {
+    path: 'parameters',
+    loadChildren: () => import('./admin/parameters/parameters.module').then(m => m.ParametersModule)
+  },
+  {
+    path: 'insurance-values-list',
+    loadChildren: () => import('./admin/insurance-values-list/insurance-values-list.module').then(m => m.InsuranceValuesListModule)
+  },
+  {
+    path: 'allocation-authority-definition',
+    loadChildren: () => import('./admin/allocation-authority-definition/allocation-authority-definition.module').then(m => m.AllocationAuthorityDefinitionModule)
   }
 ];
 
@@ -56,6 +73,8 @@ FullCalendarModule.registerPlugins([dayGridPlugin, timeGridPlugin, listPlugin, i
 
 @NgModule({
   declarations: [
+  
+    AdminComponent
   ],
   imports: [CommonModule, RouterModule.forChild(routes)]
 })

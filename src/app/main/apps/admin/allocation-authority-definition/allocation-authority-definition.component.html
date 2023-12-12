@@ -1,0 +1,39 @@
+<div class="allocation-authority-container">
+    <div class="finance-type-selector">
+      <select class="finance-dropdown" [(ngModel)]="selectedFinanceType">
+        <option value="finance" disabled selected>Finansman Türü</option>
+        <option value="secondHandVehicle">2.El Taşıt</option>
+        <option value="requirement">İhtiyaç</option>
+      </select>
+      <button class="retrieve-button" (click)="retrieveData()">Getir</button>
+    </div>
+  
+    <div class="authority-table-container">
+        <table class="parameters-fields" style="width: 65%; text-align: center; margin-top: 0.4rem;">
+            <thead>
+              <tr>
+                <th>Tahsis</th>
+                <th>Yetki Tutar Aralığı</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let authority of authorities">
+                <td>
+                  <p style="margin-top: 0; margin-bottom: 0; font-weight: 600;">{{ authority.name }}</p>
+                </td>
+
+                <td>
+                  <input type="number" [placeholder]="authority.minAmount" class="final-invoice-amount">
+                  <span>- </span>
+                  <input type="number" [placeholder]="authority.maxAmount" class="final-invoice-amount"/>
+                  <span>TL</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="regulations-save-button-div" style="width:65%; display:flex; justify-content:end;">
+            <button class="save-button">Kaydet</button>
+          </div>
+    </div>
+  </div>

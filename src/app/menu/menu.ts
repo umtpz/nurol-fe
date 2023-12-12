@@ -93,9 +93,38 @@ export const menu: CoreMenu[] = [
       {
         id: 'admin',
         title: 'Admin',
-        type: 'item',
+        type: 'collapsible',
         icon: 'user',
-        url: 'apps/umtpz'
+        children: [
+          { 
+            id: 'user-description',
+            title: 'Kullanıcı Tanımlama',
+            type: 'item',
+            icon: 'circle',
+            url: 'apps/user-description'
+          },
+          { 
+            id: 'parameters',
+            title: 'Parametreler',
+            type: 'item',
+            icon: 'circle',
+            url: 'apps/parameters'
+          },
+          { 
+            id: 'insurance-values-list',
+            title: 'Kasko Değerler Listesi',
+            type: 'item',
+            icon: 'circle',
+            url: 'apps/insurance-values-list'
+          },
+          { 
+            id: 'allocation-authority-definition',
+            title: 'Tahsis Yetki Tanım',
+            type: 'item',
+            icon: 'circle',
+            url: 'apps/allocation-authority-definition'
+          },
+        ]
       },
       {
         id: 'settings',

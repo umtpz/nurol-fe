@@ -1,0 +1,178 @@
+<div class="parameters-container">
+  <div class="tabs">
+    <button
+      class="tab"
+      (click)="selectTab('general')"
+      [class.active]="activeTab === 'general'"
+    >
+      Genel Parametreler
+    </button>
+    <button
+      class="tab"
+      (click)="selectTab('secondHand')"
+      [class.active]="activeTab === 'secondHand'"
+    >
+      2. El Taşıt Mevzuatı
+    </button>
+    <button
+      class="tab"
+      (click)="selectTab('needLegislation')"
+      [class.active]="activeTab === 'needLegislation'"
+    >
+      İhtiyaç Mevzuat
+    </button>
+  </div>
+
+  <!-- General Parameters Fields -->
+  <div *ngIf="activeTab === 'general'" class="general-parameters" style="display: flex; flex-direction: column; align-items: center; margin-top:3rem;">
+    <table class="parameters-fields" style="width: 65%;">
+      <tr>
+        <div class="parameter-field">
+          <td>
+            <label>SMS Geçerlilik Süresi</label>
+          </td>
+          <td colspan="2">
+            <input type="number" placeholder="240" />
+            <span>sn</span>
+          </td>
+        </div>
+      </tr>
+      <tr>
+        <div class="parameter-field">
+          <td>
+            <label>Session Time Out Süresi</label>
+          </td>
+          <td colspan="2">
+            <input type="number" placeholder="300" />
+            <span>sn</span>
+          </td>
+        </div>
+      </tr>
+      <tr>
+        <div class="parameter-field range-field">
+          <td>
+            <label>Cep Telefonu Vade</label>
+          </td>
+          <td style="width: 15rem;">
+            <input type="text" placeholder="12.000"/>
+            <span> <= </span>
+            <input type="number" placeholder="12"  class="phone-maturity-input" />
+            <span>ay</span>
+          </td>
+          <td style="text-align: center; width: 15rem;">
+            <input type="text" placeholder="12.000" />
+            <span>></span>
+            <input type="number" placeholder="3" class="phone-maturity-input"/>
+            <span>ay</span>
+          </td>
+        </div>
+      </tr>
+      <tr>
+        <div class="parameter-field">
+          <td>
+            <label>Tablet Vade</label>
+          </td>
+          <td colspan="2">
+            <input type="number" placeholder="6" class="small-input"/>
+            <span>ay</span>
+          </td>
+        </div>
+      </tr>
+      <tr>
+        <div class="parameter-field">
+          <td>
+            <label>Bilgisayar Vade</label>
+          </td>
+          <td colspan="2">
+            <input type="number" placeholder="12" class="small-input"/>
+            <span>ay</span>
+          </td>
+        </div>
+      </tr>
+      <tr>
+        <div class="parameter-field">
+            <td>
+                <label>Zorunlu Şifre Değişikliği</label>
+            </td>
+            <td colspan="2">
+                <input type="number" placeholder="3" class="small-input"/>
+                <span>ay</span>
+            </td>
+        </div>
+      </tr>
+    </table>
+    <div class="save-button-div" style="width:65%; display:flex; justify-content:end;">
+        <button class="save-button">Kaydet</button>
+    </div>
+  </div>
+
+  <!-- Second Hand Vehicle Regulations Fields -->
+  <div *ngIf="activeTab === 'secondHand'" class="second-hand-parameters" style="display: flex; flex-direction: column; align-items: center; margin-top:3rem;">
+    <div class="parameters-title" style="width: 65%;">
+      <h2 style="text-align: left;">2. El Taşıt Finansmanı</h2>
+    </div>
+    <table class="parameters-fields" style="width: 65%; text-align: center; margin-top: 0.4rem;">
+      <thead>
+        <tr>
+          <th>Nihai Fatura Tutarı</th>
+          <th>Azami Vade</th>
+          <th>Azami Kredi Oranı</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let regulation of secondHandRegulations">
+            <td>
+              <input type="number" [placeholder]="regulation.minAmount" class="final-invoice-amount">
+              <span>- </span>
+              <input type="number" [placeholder]="regulation.maxAmount" class="final-invoice-amount"/>
+              <span>TL</span>
+            </td>
+            <td>
+              <input type="number" [placeholder]="regulation.maxTerm" class="second-type-input"/>
+              <span>ay</span>
+            </td>
+            <td>
+              <input type="number" [placeholder]="regulation.maxCreditRate" class="second-type-input"/>
+              <span>%</span>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+    <div class="regulations-save-button-div" style="width:65%; display:flex; justify-content:end;">
+      <button class="save-button">Kaydet</button>
+    </div>
+  </div>
+
+  <!-- Need Legistation Fields -->
+  <div *ngIf="activeTab === 'needLegislation'" class="need-legislation-parameters" style="display: flex; flex-direction: column; align-items: center; margin-top:3rem;">
+    <div class="parameters-title" style="width: 65%;">
+      <h2 style="text-align: left;">İhtiyaç Finansmanı</h2>
+    </div>
+    <table class="parameters-fields" style="width: 65%; text-align: center; margin-top: 0.4rem;">
+      <thead>
+        <tr>
+          <th>Kredi Tutarı</th>
+          <th>Azami Vade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let regulation of needLegislations">
+            <td>
+              <input type="number" [placeholder]="regulation.minAmount" class="final-invoice-amount">
+              <span>- </span>
+              <input type="number" [placeholder]="regulation.maxAmount" class="final-invoice-amount"/>
+              <span>TL</span>
+            </td>
+            <td>
+              <input type="number" [placeholder]="regulation.maxTerm" class="second-type-input"/>
+              <span>ay</span>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+    <div class="regulations-save-button-div" style="width:65%; display:flex; justify-content:end;">
+      <button class="save-button">Kaydet</button>
+    </div>
+  </div>
+
+</div>

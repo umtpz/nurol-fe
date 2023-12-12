@@ -1,0 +1,278 @@
+.parameters-container {
+    margin-top: 1rem;
+    .tabs {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-bottom: 20px;
+      .tab {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        background-color: #d82121;
+        color: white;
+        cursor: pointer;
+        &.active {
+          background-color: #1c4a84;
+          color: white;
+        }
+      }
+    }
+  
+    .parameters-fields {
+      background-color: #f7f7f7;
+      padding: 20px;
+      border-radius: 6px;
+      .parameter-field {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        label {
+          width: 18rem;
+          margin-right: 10px;
+          font-weight: bold;
+          color: #174682;
+          font-size: 1.02rem;
+        }
+        input {
+          padding: 5px 10px;
+          border: 1px solid #ccc;
+          border-radius: 20px;
+          margin-right: 5px;
+          width: 4.8rem;
+          &.small-input {
+            width: 3rem;
+          }
+        }
+        span {
+          margin-right: 5px;
+        }
+      }
+      .phone-maturity-input {
+        width: 3rem !important;
+      }
+      .range-field {
+        input[type="number"] {
+          width: 60px;
+        }
+      }
+    }
+
+    table {
+        tr:hover {
+          background-color: #bcbdbc !important;
+          transition: all ease 0.1s;
+        }
+        tr:nth-child(odd) {
+          background-color: #efefef;
+        }
+      
+        tr:nth-child(even) {
+          background-color: white;
+        }
+    }
+
+    .save-button-div {
+        min-width: 48.8rem !important;
+    }
+
+    @media (max-width: 687px) {
+        .general-parameters {
+            display: block !important;
+        }
+        .tabs {
+            width: 687px;
+        }
+        
+      }
+  
+    .save-button {
+      padding: 3px 16px;
+      background-color: #1c4a84;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 2.5rem;
+    }
+  }
+
+.second-hand-parameters {
+    min-width: 59.8rem;
+
+    .parameters-title {
+      margin: auto;
+      padding: 10px;
+      background-color: #1c4a84;
+        
+      h2 {
+        text-align: center;
+        font-size: 1.25rem;
+        color: white;
+      }
+    }
+  
+    .parameters-fields {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #fff;
+      margin-bottom: 2rem;
+  
+      thead {
+        tr {
+          background-color: #1c4a84;
+          color: white;
+          th {
+            padding: 10px;
+            text-align: center;
+            background-color: #3d3d3d;
+            border-right: 2px solid white;
+          }
+        }
+      }
+  
+      tbody {
+        tr {
+          td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+        }
+        tr:last-child td {
+          border-bottom: none;
+        }
+        .final-invoice-amount {
+          padding: 5px 10px;
+          border: 1px solid #ccc;
+          border-radius: 20px;
+          margin-right: 5px;
+          width: 8rem;
+        }
+        .second-type-input {
+          padding: 5px 10px;
+          border: 1px solid #ccc;
+          border-radius: 20px;
+          margin-right: 5px;
+          width: 3rem;
+        }
+      }
+    }
+
+    .regulations-save-button-div {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1rem;
+    }
+  
+    .save-button {
+      padding: 3px 16px;
+      background-color: #1c4a84;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+
+  @media (max-width: 687px) {
+    .second-hand-parameters {
+        display: block !important;
+        width: 58rem !important;
+    }
+    .parameters-title {
+        display: block !important;
+        margin: 0 !important;
+    }
+  }
+
+  .need-legislation-parameters {
+    .parameters-title {
+      margin: auto;
+      padding: 10px;
+      background-color: #1c4a84;
+        
+      h2 {
+        text-align: center;
+        font-size: 1.25rem;
+        color: white;
+      }
+    }
+  
+    .parameters-fields {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #fff;
+      margin-bottom: 2rem;
+  
+      thead {
+        tr {
+          background-color: #1c4a84;
+          color: white;
+          th {
+            padding: 10px;
+            text-align: center;
+            background-color: #3d3d3d;
+            border-right: 2px solid white;
+          }
+        }
+      }
+  
+      tbody {
+        tr {
+          td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+        }
+        tr:last-child td {
+          border-bottom: none;
+        }
+        .final-invoice-amount {
+          padding: 5px 10px;
+          border: 1px solid #ccc;
+          border-radius: 20px;
+          margin-right: 5px;
+          width: 8rem;
+        }
+        .second-type-input {
+          padding: 5px 10px;
+          border: 1px solid #ccc;
+          border-radius: 20px;
+          margin-right: 5px;
+          width: 3rem;
+        }
+      }
+
+    }
+
+    .regulations-save-button-div {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1rem;
+    }
+  
+    .save-button {
+      padding: 3px 16px;
+      background-color: #1c4a84;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+
+  @media (max-width: 687px) {
+    .need-legislation-parameters {
+        display: block !important;
+        width: 52.375rem !important;
+    }
+  }
