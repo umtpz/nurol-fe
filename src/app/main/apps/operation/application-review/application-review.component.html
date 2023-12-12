@@ -1,0 +1,288 @@
+<p>application-review works!</p>
+<div class="card col-12 p-3 d-flex align-items-center">
+    <div class="col-10 d-flex justify-content-between inputs" style="gap: 32px;">
+        <div style="flex: 1;">
+            <input placeholder="TC Kimlik No" />
+            <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')"
+                placeholder="Başlangıç Tarihi gg/aa/yyyy" />
+            <select style="width: 100%;">
+                <option value="" disabled selected>Bayi</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+            </select>
+        </div>
+        <div style="flex: 1;">
+            <input placeholder="Başvuru No" />
+            <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')"
+                placeholder="Bitiş Tarihi gg/aa/yyyy" />
+            <select style="width: 100%;">
+                <option value="" disabled selected>Statü</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+            </select>
+        </div>
+        <div style="flex: 1;">
+            <input placeholder="Ad Soyad" />
+            <select style="width: 100%;">
+                <option value="" disabled selected>Finansman Türü</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+            </select>
+            <input placeholder="Cep Telefonu" />
+        </div>
+    </div>
+    <div class="col-10 d-flex justify-content-end mb-3"><button class="action-button"
+            style="margin-left: 16px; height: 24px;">Getir</button>
+    </div>
+
+
+    <div class="col-12 results-table align-items-center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Başvuru No</th>
+                    <th>TC Kimlik No</th>
+                    <th>Ad Soyad</th>
+                    <th>Başvuru Tarihi</th>
+                    <th>Kullandırım Tarihi</th>
+                    <th>Talep Tutar</th>
+                    <th>Onaylanan Tutar</th>
+                    <th>Vade</th>
+                    <th>Bayi</th>
+                    <th>Finansman Türü</th>
+                    <th>KKB</th>
+                    <th>Statü</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table row -->
+                <tr *ngFor="let item of items; let i = index;">
+                    <td style=" border-left: solid 2px #efefef">{{ "" }}</td>
+                    <td>{{ "a" }}</td>
+                    <td>{{ "a" }}</td>
+                    <td>{{ "a" }}</td>
+                    <td>{{ "a" }}</td>
+                    <td>{{ "a" }}</td>
+                    <td>{{ "a" }}</td>
+                    <td>{{ "a" }}</td>
+                    <td>{{ "a" }}</td>
+                    <td>{{ "a" }}</td>
+                    <td>{{ "a" }}</td>
+                    <td style="border-right: solid 2px #efefef;">{{ "a" }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="application-number mt-3">Başvuru No: 452234</div>
+
+    <div class="d-flex justify-content-center mt-2" style="gap:16px">
+        <div class="selection" (click)="tabSelection(0)"
+            [ngStyle]="selectedTab != 0 && {'color':'#1c4a84','background':'white'}">Müşteri Bilgileri</div>
+        <div class="selection" (click)="tabSelection(1)"
+            [ngStyle]="selectedTab != 1 && {'color':'#1c4a84','background':'white'}">Teklif Bilgileri</div>
+        <div class="selection" (click)="tabSelection(2)"
+            [ngStyle]="selectedTab != 2 && {'color':'#1c4a84','background':'white'}">Teklif Bilgileri</div>
+        <div class="selection" (click)="tabSelection(3)"
+            [ngStyle]="selectedTab != 3 && {'color':'#1c4a84','background':'white'}">Teklif Bilgileri</div>
+    </div>
+
+    <div class="col-10 d-flex mt-3" style="gap: 32px;" *ngIf="selectedTab == 0">
+        <div style="flex: 1; border: solid 2px #ddd;">
+            <table class="vertical-table">
+                <tr>
+                    <th>Ad Soyad</th>
+                    <td>Ali Yılmaz</td>
+                </tr>
+                <tr>
+                    <th>TC Kimlik No</th>
+                    <td>112******56</td>
+                </tr>
+                <tr>
+                    <th>Doğum Tarihi</th>
+                    <td>11/11/1972</td>
+                </tr>
+                <tr>
+                    <th>Anne Kızlık Soyadı</th>
+                    <td>Ö***n</td>
+                </tr>
+                <tr>
+                    <th>Kimlik Numarası</th>
+                    <td>AB********21</td>
+                </tr>
+                <tr>
+                    <th>Cep Telefonu</th>
+                    <td>05324442266</td>
+                </tr>
+                <tr>
+                    <th>E-Posta Adresi</th>
+                    <td>ali.yilmaz@gmail.com</td>
+                </tr>
+                <tr>
+                    <th>Çalışma Şekli</th>
+                    <td>Serbest Meslek</td>
+                </tr>
+                <tr>
+                    <th>Meslek</th>
+                    <td>Terzi</td>
+                </tr>
+                <tr>
+                    <th>Eğitim Durumu</th>
+                    <td>Lise</td>
+                </tr>
+            </table>
+        </div>
+        <div style="flex: 1; border: solid 2px #ddd;">
+            <table class="vertical-table">
+                <tr>
+                    <th>İşyeri Adı</th>
+                    <td>Terzi Ustası</td>
+                </tr>
+                <tr>
+                    <th>İşyeri Vergi Kimlik No</th>
+                    <td>332*********88</td>
+                </tr>
+                <tr>
+                    <th>Aylık Net Gelir</th>
+                    <td>40.000₺</td>
+                </tr>
+                <tr>
+                    <th>İşyeri Adresi</th>
+                    <td>Lorem ipsum...</td>
+                </tr>
+                <tr>
+                    <th>İşyeri İl</th>
+                    <td>İstanbul</td>
+                </tr>
+                <tr>
+                    <th>İşyeri İlçe</th>
+                    <td>Maltepe</td>
+                </tr>
+                <tr>
+                    <th>İşyeri Telefonu</th>
+                    <td>02128889977</td>
+                </tr>
+                <tr>
+                    <th>Son İşyerinde Çalışma Süresi</th>
+                    <td>5+</td>
+                </tr>
+                <tr>
+                    <th>Ev Sahipliği</th>
+                    <td>Kendi Evi</td>
+                </tr>
+                <tr>
+                    <th>Teslimat Adresi</th>
+                    <td>Lorem ipsum...</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-6 d-flex flex-column mt-3" *ngIf="selectedTab == 1">
+        <div style="flex: 1; border: solid 2px #ddd;">
+            <table class="vertical-table">
+                <tr>
+                    <th>Oran</th>
+                    <td>%2.59</td>
+                </tr>
+                <tr>
+                    <th>Vade</th>
+                    <td>30 ay</td>
+                </tr>
+                <tr>
+                    <th>Taksit Tutarı</th>
+                    <td>2.683 ₺</td>
+                </tr>
+                <tr>
+                    <th>Kredi Tutarı</th>
+                    <td>50.000 ₺</td>
+                </tr>
+                <tr>
+                    <th>Masraf</th>
+                    <td>287,8 ₺</td>
+                </tr>
+                <tr>
+                    <th>Faiz</th>
+                    <td>30.208,30 ₺</td>
+                </tr>
+                <tr>
+                    <th>Toplam Maliyet</th>
+                    <td>80.491,30 ₺</td>
+                </tr>
+                <tr>
+                    <th>Geçerlilik Tarihi</th>
+                    <td>12/12/2023</td>
+                </tr>
+            </table>
+
+        </div>
+        <a>Ödeme planı için tıklayın.</a>
+    </div>
+
+    <div class="col-6 d-flex flex-column mt-3" *ngIf="selectedTab == 2">
+        <div style="flex: 1; border: solid 2px #ddd;">
+            <table class="vertical-table">
+                <tr>
+                    <th>Marka</th>
+                    <td>BMW</td>
+                </tr>
+                <tr>
+                    <th>Ürün Kategorisi</th>
+                    <td>Araç</td>
+                </tr>
+                <tr>
+                    <th>Ürün</th>
+                    <td>520i SEDAN 1.6 170 SPORT LINE</td>
+                </tr>
+                <tr>
+                    <th>Satış Tutarı</th>
+                    <td>1.500.000 ₺</td>
+                </tr>
+                <tr>
+                    <th>Adet</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>Toplam Satış Tutarı</th>
+                    <td>1.500.000 ₺</td>
+                </tr>
+                <tr>
+                    <th>Yıl</th>
+                    <td>2020</td>
+                </tr>
+                <tr>
+                    <th>Plaka</th>
+                    <td>134 ABC 123</td>
+                </tr>
+                <tr>
+                    <th>KM</th>
+                    <td>12000</td>
+                </tr>
+                <tr>
+                    <th>Konsinye mi?</th>
+                    <td>Evet</td>
+                </tr>
+                <tr>
+                    <th>Şasi No</th>
+                    <td>222222222222</td>
+                </tr>
+                <tr>
+                    <th>Kasko Değeri</th>
+                    <td>1.400.000 ₺</td>
+                </tr>
+                <tr>
+                    <th>Kullanım Amacı</th>
+                    <td>Hususi</td>
+                </tr>
+                <tr>
+                    <th>Tramer Hasar Değeri</th>
+                    <td>0 ₺</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <div class="col-10 d-flex justify-content-end mt-3"><button class="action-button"
+            style="margin-left: 16px; height: 24px;">Geri</button>
+    </div>
+</div>

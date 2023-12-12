@@ -29,7 +29,7 @@ export const menu: CoreMenu[] = [
             title: 'Başvuru Gözlem',
             type: 'item',
             icon: 'circle',
-            url: 'apps/umtpz'
+            url: 'apps/application-review'
           },
           {
             id: 'customer-tracking',

@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: () => import('./marketing/marketing.module').then(m => m.MarketingModule)
   },
   {
+    path: 'application-review',
+    loadChildren: () => import('./operation/application-review/application-review.module').then(m => m.AplicationReviewModule)
+  },
+  {
     path: 'settings',
     loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
   },
