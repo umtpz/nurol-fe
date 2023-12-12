@@ -176,11 +176,6 @@
       border-radius: 4px;
       cursor: pointer;
       font-weight: bold;
-      transition: background-color 0.2s ease-in-out;
-  
-      &:hover {
-        background-color: darken(#1c4a84, 10%);
-      }
     }
   }
 
@@ -272,11 +267,6 @@
       border-radius: 4px;
       cursor: pointer;
       font-weight: bold;
-      transition: background-color 0.2s ease-in-out;
-  
-      &:hover {
-        background-color: darken(#1c4a84, 10%);
-      }
     }
   }
 

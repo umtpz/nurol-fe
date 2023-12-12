@@ -54,6 +54,14 @@ const routes: Routes = [
   {
     path: 'parameters',
     loadChildren: () => import('./admin/parameters/parameters.module').then(m => m.ParametersModule)
+  },
+  {
+    path: 'insurance-values-list',
+    loadChildren: () => import('./admin/insurance-values-list/insurance-values-list.module').then(m => m.InsuranceValuesListModule)
+  },
+  {
+    path: 'allocation-authority-definition',
+    loadChildren: () => import('./admin/allocation-authority-definition/allocation-authority-definition.module').then(m => m.AllocationAuthorityDefinitionModule)
   }
 ];
 

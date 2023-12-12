@@ -1,0 +1,23 @@
+<div class="col-12 d-md-flex flex-md-column align-items-md-center upload-container">
+    <div class="col-md-8 col-sm-12 flex-column upload-instructions" style="padding: 0;">
+      <div style="background: #efefef; padding: 1.1rem 1rem; font-size: initial;">
+        <p>Dosyayı yüklerken aşağıdakilere dikkat ediniz.</p>
+        <ul>
+          <li>Lorem ipsum...</li>
+          <li>Lorem ipsum...</li>
+          <li>Lorem ipsum...</li>
+          <li>Lorem ipsum...</li>
+        </ul>
+      </div>
+  
+      <div class="file-upload-container">
+        <input type="text" class="file-name-input" placeholder="Dosya" [(ngModel)]="fileName" readonly>
+        <input type="file" #fileInput id="fileInput" (change)="onFileSelected($event)" hidden>
+        <button type="button" class="file-search-button" (click)="fileInput.click()">Ara</button>
+      </div>
+    </div>
+  
+    <div class="col-md-8 save-button-div" style="display:flex; justify-content:end; padding-right: 0; padding-left: 0;">
+      <button class="save-button">Kaydet</button>
+    </div>
+</div>
