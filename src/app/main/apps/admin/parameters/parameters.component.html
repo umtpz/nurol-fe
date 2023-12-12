@@ -16,8 +16,8 @@
     </button>
     <button
       class="tab"
-      (click)="selectTab('necessity')"
-      [class.active]="activeTab === 'necessity'"
+      (click)="selectTab('needLegislation')"
+      [class.active]="activeTab === 'needLegislation'"
     >
       İhtiyaç Mevzuatı
     </button>
@@ -101,8 +101,78 @@
         </div>
       </tr>
     </table>
-    <div class="save-button-div" style=" width:65%; display:flex; justify-content:end;">
+    <div class="save-button-div" style="width:65%; display:flex; justify-content:end;">
         <button class="save-button">Kaydet</button>
     </div>
   </div>
+
+  <!-- Second Hand Vehicle Regulations Fields -->
+  <div *ngIf="activeTab === 'needLegislation'" class="need-legislation-parameters" style="display: flex; flex-direction: column; align-items: center; margin-top:3rem;">
+    <div class="parameters-title" style="width: 65%;">
+      <h2 style="text-align: left;">İhtiyaç Finansmanı</h2>
+    </div>
+    <table class="parameters-fields" style="width: 65%; text-align: center; margin-top: 0.4rem;">
+      <thead>
+        <tr>
+          <th>Kredi Tutarı</th>
+          <th>Azami Vade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let regulation of needLegislations">
+            <td>
+              <input type="number" [placeholder]="regulation.minAmount" class="final-invoice-amount">
+              <span>- </span>
+              <input type="number" [placeholder]="regulation.maxAmount" class="final-invoice-amount"/>
+              <span>TL</span>
+            </td>
+            <td>
+              <input type="number" [placeholder]="regulation.maxTerm" class="second-type-input"/>
+              <span>ay</span>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+    <div class="regulations-save-button-div" style="width:65%; display:flex; justify-content:end;">
+      <button class="save-button">Kaydet</button>
+    </div>
+  </div>
+
+  <!-- Need Legistation Fields -->
+  <div *ngIf="activeTab === 'secondHand'" class="second-hand-parameters" style="display: flex; flex-direction: column; align-items: center; margin-top:3rem;">
+    <div class="parameters-title" style="width: 65%;">
+      <h2 style="text-align: left;">2. El Taşıt Finansmanı</h2>
+    </div>
+    <table class="parameters-fields" style="width: 65%; text-align: center; margin-top: 0.4rem;">
+      <thead>
+        <tr>
+          <th>Nihai Fatura Tutarı</th>
+          <th>Azami Vade</th>
+          <th>Azami Kredi Oranı</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let regulation of secondHandRegulations">
+            <td>
+              <input type="number" [placeholder]="regulation.minAmount" class="final-invoice-amount">
+              <span>- </span>
+              <input type="number" [placeholder]="regulation.maxAmount" class="final-invoice-amount"/>
+              <span>TL</span>
+            </td>
+            <td>
+              <input type="number" [placeholder]="regulation.maxTerm" class="second-type-input"/>
+              <span>ay</span>
+            </td>
+            <td>
+              <input type="number" [placeholder]="regulation.maxCreditRate" class="second-type-input"/>
+              <span>%</span>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+    <div class="regulations-save-button-div" style="width:65%; display:flex; justify-content:end;">
+      <button class="save-button">Kaydet</button>
+    </div>
+  </div>
+
 </div>

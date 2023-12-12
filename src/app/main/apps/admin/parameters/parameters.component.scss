@@ -73,6 +73,10 @@
         }
     }
 
+    .save-button-div {
+        min-width: 48.8rem !important;
+    }
+
     @media (max-width: 687px) {
         .general-parameters {
             display: block !important;
@@ -80,9 +84,7 @@
         .tabs {
             width: 687px;
         }
-        .save-button-div {
-            width: 680px !important;
-        }
+        
       }
   
     .save-button {
@@ -93,5 +95,194 @@
       border-radius: 6px;
       cursor: pointer;
       margin-top: 2.5rem;
+    }
+  }
+
+.second-hand-parameters {
+    min-width: 59.8rem;
+
+    .parameters-title {
+      margin: auto;
+      padding: 10px;
+      background-color: #1c4a84;
+        
+      h2 {
+        text-align: center;
+        font-size: 1.25rem;
+        color: white;
+      }
+    }
+  
+    .parameters-fields {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #fff;
+      margin-bottom: 2rem;
+  
+      thead {
+        tr {
+          background-color: #1c4a84;
+          color: white;
+          th {
+            padding: 10px;
+            text-align: center;
+            background-color: #3d3d3d;
+            border-right: 2px solid white;
+          }
+        }
+      }
+  
+      tbody {
+        tr {
+          td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+        }
+        tr:last-child td {
+          border-bottom: none;
+        }
+        .final-invoice-amount {
+          padding: 5px 10px;
+          border: 1px solid #ccc;
+          border-radius: 20px;
+          margin-right: 5px;
+          width: 8rem;
+        }
+        .second-type-input {
+          padding: 5px 10px;
+          border: 1px solid #ccc;
+          border-radius: 20px;
+          margin-right: 5px;
+          width: 3rem;
+        }
+      }
+    }
+
+    .regulations-save-button-div {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1rem;
+    }
+  
+    .save-button {
+      padding: 3px 16px;
+      background-color: #1c4a84;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s ease-in-out;
+  
+      &:hover {
+        background-color: darken(#1c4a84, 10%);
+      }
+    }
+  }
+
+  @media (max-width: 687px) {
+    .second-hand-parameters {
+        display: block !important;
+        width: 58rem !important;
+    }
+    .parameters-title {
+        display: block !important;
+        margin: 0 !important;
+    }
+  }
+
+  .need-legislation-parameters {
+    .parameters-title {
+      margin: auto;
+      padding: 10px;
+      background-color: #1c4a84;
+        
+      h2 {
+        text-align: center;
+        font-size: 1.25rem;
+        color: white;
+      }
+    }
+  
+    .parameters-fields {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #fff;
+      margin-bottom: 2rem;
+  
+      thead {
+        tr {
+          background-color: #1c4a84;
+          color: white;
+          th {
+            padding: 10px;
+            text-align: center;
+            background-color: #3d3d3d;
+            border-right: 2px solid white;
+          }
+        }
+      }
+  
+      tbody {
+        tr {
+          td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+        }
+        tr:last-child td {
+          border-bottom: none;
+        }
+        .final-invoice-amount {
+          padding: 5px 10px;
+          border: 1px solid #ccc;
+          border-radius: 20px;
+          margin-right: 5px;
+          width: 8rem;
+        }
+        .second-type-input {
+          padding: 5px 10px;
+          border: 1px solid #ccc;
+          border-radius: 20px;
+          margin-right: 5px;
+          width: 3rem;
+        }
+      }
+
+    }
+
+    .regulations-save-button-div {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1rem;
+    }
+  
+    .save-button {
+      padding: 3px 16px;
+      background-color: #1c4a84;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s ease-in-out;
+  
+      &:hover {
+        background-color: darken(#1c4a84, 10%);
+      }
+    }
+  }
+
+  @media (max-width: 687px) {
+    .need-legislation-parameters {
+        display: block !important;
+        width: 52.375rem !important;
     }
   }
