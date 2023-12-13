@@ -36,14 +36,7 @@ export const menu: CoreMenu[] = [
             title: 'Müşteri Gözlem',
             type: 'item',
             icon: 'circle',
-            url: 'apps/umtpz'
-          },
-          {
-            id: 'cell-update',
-            title: 'Müşteri Telefonu Güncelleme',
-            type: 'item',
-            icon: 'circle',
-            url: 'apps/umtpz'
+            url: 'apps/client-observation'
           },
           {
             id: 'doc-control',

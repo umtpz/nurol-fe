@@ -1,0 +1,58 @@
+
+button {
+    width: 80px;
+    text-align: center;
+    padding: 2px 8px;
+    background-color: #1c4a84;
+    border: none;
+    font-size: 12px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #0056b3;
+    }
+}
+
+.inputs {
+
+    input {
+        font-size: 12px;
+        width: 100%;
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+        border-radius: 16px;
+    }
+}
+
+.table {
+    tr:nth-child(odd) {
+        background: #efefef;
+    }
+}
+
+.vertical-table {
+    width: 100%;
+
+    tr {
+        width: 100%;
+    }
+
+    tr:nth-child(odd) {
+        background: #efefef;
+    }
+
+    th {
+        width: 50%;
+        color: #1c4a84;
+        padding: 2px 4px;
+        font-size: 12px;
+    }
+
+    td {
+        width: 50%;
+        padding: 4px 8px;
+        font-size: 13px;
+    }
+}

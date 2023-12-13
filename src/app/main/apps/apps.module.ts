@@ -21,7 +21,11 @@ const routes: Routes = [
   },
   {
     path: 'application-review',
-    loadChildren: () => import('./operation/application-review/application-review.module').then(m => m.AplicationReviewModule)
+    loadChildren: () => import('./operation/application-review/application-review.module').then(m => m.ApplicationReviewModule)
+  },
+  {
+    path: 'client-observation',
+    loadChildren: () => import('./operation/client-observation/client-observation.module').then(m => m.ClientObservationModule)
   },
   {
     path: 'settings',
