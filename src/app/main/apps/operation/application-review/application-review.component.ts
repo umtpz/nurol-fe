@@ -10,7 +10,8 @@ export class ApplicationReviewComponent implements OnInit {
   constructor() { }
 
   items=[{},{},{},{},]
-  selectedTab = 2;
+  selectedTab = 3;
+  isCar = true;
 
   ngOnInit(): void {
   }
