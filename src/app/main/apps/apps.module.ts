@@ -24,6 +24,10 @@ const routes: Routes = [
     loadChildren: () => import('./operation/application-review/application-review.module').then(m => m.AplicationReviewModule)
   },
   {
+    path: 'doc-control',
+    loadChildren: () => import('./operation/doc-control/doc-control.module').then(m => m.DocControlModule)
+  },
+  {
     path: 'settings',
     loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
   },

@@ -50,7 +50,7 @@ export const menu: CoreMenu[] = [
             title: 'Doküman Kontrol',
             type: 'item',
             icon: 'circle',
-            url: 'apps/umtpz'
+            url: 'apps/doc-control'
           },
           {
             id: 'assignment',
