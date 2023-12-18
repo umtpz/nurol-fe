@@ -32,6 +32,10 @@ const routes: Routes = [
     loadChildren: () => import('./operation/doc-control/doc-control.module').then(m => m.DocControlModule)
   },
   {
+    path: 'intelligence',
+    loadChildren: () => import('./operation/intelligence/intelligence.module').then(m => m.IntelligenceModule)
+  },
+  {
     path: 'settings',
     loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
   },

@@ -1,0 +1,93 @@
+<div class="card col-12 p-3 d-flex align-items-center" style="min-width: 55rem;">
+    <div class="col-10 d-flex justify-content-between inputs" style="gap: 32px;">
+        <div style="flex: 1;">
+            <input placeholder="TC Kimlik No" [(ngModel)]="searchCriteria.identityNumber" />
+            <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')"
+                placeholder="Başlangıç Tarihi gg/aa/yyyy" />
+            <select style="width: 100%;">
+                <option value="" disabled selected>Bayi</option>
+                <option value="goztepe">Göztepe Bayi</option>
+                <option value="besiktas">Beşiktaş Bayi</option>
+            </select>
+        </div>
+        <div style="flex: 1;">
+            <input placeholder="Başvuru No" [(ngModel)]="searchCriteria.applicationNumber" />
+            <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')"
+                placeholder="Bitiş Tarihi gg/aa/yyyy" />
+        </div>
+        <div style="flex: 1;">
+            <select style="width: 100%;">
+                <option value="" disabled selected>Kanal</option>
+                <option value="dealer">Bayi</option>
+                <option value="branch">Şube</option>
+                <option value="mobile">Mobil</option>
+                <option value="internet-branch">İntenet Şube</option>
+                <option value="web">Web</option>
+                <option value="e-commerce">E-Ticaret</option>
+            </select>
+            <select style="width: 100%;">
+                <option value="" disabled selected>Finansman Türü</option>
+                <option value="second-hand-vehicle">2. El Taşıt</option>
+                <option value="need">İhtiyaç</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-10 d-flex justify-content-end mb-3">
+        <button class="action-button" style="margin-left: 16px; height: 24px;" (click)="searchApplications()">Getir</button>
+    </div>
+
+    <!-- Information text to be displayed if the search result is empty -->
+    <ng-template  #noResultsTemplate>
+        <div class="no-results" *ngIf="searchMade"><span style="font-size: 1.8rem;">⚠️</span> Arama kriterlerinize uygun sonuç bulunamadı.</div>
+    </ng-template>
+
+    <div class="col-12 results-table align-items-center" *ngIf="filteredApplications.length > 0; else noResultsTemplate">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Başvuru No</th>
+              <th>TC Kimlik No</th>
+              <th>Ad Soyad</th>
+              <th>Bayi</th>
+              <th>Fraud Şüphesi</th>
+              <th>Ürün Doğrulama</th>
+              <th>Sicil Kodu</th>
+              <th>İşlem</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let application of filteredApplications">
+            <td>{{ application.applicationNumber }}</td>
+              <td>{{ application.identityNumber }}</td>
+              <td>{{ application.fullName }}</td>
+              <td>{{ application.dealer }}</td>
+              <td>
+                <input type="checkbox" [(ngModel)]="application.fraudSuspicion">
+              </td>
+              <td>
+                <input type="checkbox" [(ngModel)]="application.productVerification">
+              </td>
+              <td>{{ application.registerCode }}</td>
+              <td style="border-right: none;">
+                <button (click)="selectApplication(application)">Seç</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    <!-- Detail buttons of the selected application -->
+  <div *ngIf="selectedApplication && filteredApplications.length > 0" class="application-number mt-3">
+    Başvuru No: {{ selectedApplication.applicationNumber }}
+  </div>
+  
+  <div *ngIf="selectedApplication" class="d-flex justify-content-center mt-2" style="gap:16px">
+    <div class="selection">Müşteri Bilgileri</div>
+    <div class="selection">Sepet Bilgileri</div>
+    <div class="selection">GIB/Telco</div>
+    <div class="selection">KDS Sonucu</div>
+    <div class="selection">İlişkili Başvurular</div>
+    <div class="selection">Karar</div>
+  </div>
+
+</div>

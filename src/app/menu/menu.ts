@@ -53,11 +53,11 @@ export const menu: CoreMenu[] = [
             url: 'apps/umtpz'
           },
           {
-            id: 'information',
+            id: 'intelligence',
             title: 'İstihbarat',
             type: 'item',
             icon: 'circle',
-            url: 'apps/umtpz'
+            url: 'apps/intelligence'
           },
           {
             id: 'report',
