@@ -68,6 +68,10 @@ button {
     }
 }
 
+input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+}
 .results-table {
     border-bottom: solid 2px #efefef;
     padding: 0;
@@ -80,9 +84,12 @@ button {
             padding: 8px;
             text-align: left;
         }
+        .checkbox-data {
+            text-align: center;
+        }
         th {
             border-right: 2px solid #efefef;
-            background: #1c4a84;
+            background: #1c4a84 !important;
             color: white;
             padding: 4px 16px 12px 8px;
             text-transform: none;
@@ -100,7 +107,113 @@ button {
 }
 
 .table {
-    tr:nth-child(odd) {
+    tr:nth-child(even) {
         background: #efefef;
     }
 }
+
+.modal-header .close {
+    transform: none !important;
+    color: white !important;
+    font-size: 1rem !important;
+    background-color: #1c4a84 !important;
+    width: 3rem !important;
+    height: 3.1rem !important;
+}
+
+.modal-footer {
+    button {
+        height: 2rem !important;
+    }
+}
+
+select.form-control-sm {
+    font-size: 12px !important;
+    width: 250px !important;
+    height: 2.5rem !important;
+    line-height: 1rem !important;
+    padding: 10px 20px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 20px !important;
+    background: white !important;
+    /** for the dropdown indicator */
+    appearance: none !important;
+    background: url('../../../../../assets/images/icons/chevrons-down.svg') no-repeat scroll 97% center/1px auto !important;
+    background-repeat: no-repeat !important;
+    background-position: right 1rem center !important;
+    background-size: 1.32em !important;
+    margin-bottom: 16px !important;
+    color: black !important;
+  }
+  
+  /* Styling fieldset and legend */
+  fieldset.fraud-suspect {
+    border: 2px solid #edeeed;
+    padding: 0.3rem 1rem;
+    width: 20.5rem;
+  }
+
+  fieldset legend {
+    font-weight: bolder;
+  }
+
+  fieldset.product-verification {
+    border: 2px solid #edeeed;
+    padding: 0.3rem 1rem;
+    width: 61.5rem;
+    display: flex;
+    gap: 1.5rem;
+
+  }
+
+  legend {
+    width: fit-content;
+    padding: 0 0.5rem;
+  }
+
+  fieldset.form-group {
+    padding: 0.5rem;
+    margin: 0;
+    border: 1px solid #e0e0e0;
+    legend {
+      width: fit-content !important;
+      padding: 0 10px;
+      font-size: 1rem;
+    }
+  }
+
+  .modal-content-decision {
+    width: 64.5rem !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(34, 41, 47, 0.2);
+    border-radius: 0.358rem;
+    outline: 0;
+  }
+
+  .modal-checkbox {
+    position: relative;
+    left: 0.1rem;
+    top: 0.25rem;
+  }
+
+  .modal-dialog {
+    position: relative !important;
+    width: auto !important;;
+    pointer-events: none !important;;
+    transform: none !important;
+    transition: transform 0.3s ease-out !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+  @media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 64.5rem !important;
+        margin: 1.75rem auto !important;
+    }
+  }

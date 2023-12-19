@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 interface Application {
   applicationNumber: string;
@@ -13,7 +14,8 @@ interface Application {
 @Component({
   selector: 'app-intelligence',
   templateUrl: './intelligence.component.html',
-  styleUrls: ['./intelligence.component.scss']
+  styleUrls: ['./intelligence.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class IntelligenceComponent {
   applications: Application[] = [
@@ -63,6 +65,10 @@ export class IntelligenceComponent {
   //* To check whether a call is made or not
   searchMade = false;
 
+  closeResult: string;
+
+  constructor(private modalService: NgbModal) {}
+
   searchApplications(): void {
     this.searchMade = true;
     this.selectedApplication = null;
@@ -74,5 +80,23 @@ export class IntelligenceComponent {
 
   selectApplication(application: Application): void {
     this.selectedApplication = application;
+  }
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
   }
 }
