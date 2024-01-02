@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 interface User {
   appNumber: number;
@@ -21,7 +21,8 @@ interface DocumentItem {
 @Component({
   selector: 'app-doc-control',
   templateUrl: './doc-control.component.html',
-  styleUrls: ['./doc-control.component.scss']
+  styleUrls: ['./doc-control.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DocControlComponent implements OnInit {
   users: User[] = [
