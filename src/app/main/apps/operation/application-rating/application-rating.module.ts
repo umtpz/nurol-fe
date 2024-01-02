@@ -9,22 +9,19 @@ import { CoreCommonModule } from '@core/common.module';
 import { CardSnippetModule } from '@core/components/card-snippet/card-snippet.module';
 
 import { ContentHeaderModule } from 'app/layout/components/content-header/content-header.module';
-import { OperationComponent } from './operation.component';
-import { IntelligenceComponent } from './intelligence/intelligence.component';
-import { ApplicationRatingComponent } from './application-rating/application-rating.component';
-
+import { ApplicationRatingComponent } from './application-rating.component';
 
 // routing
 const routes: Routes = [
   {
     path: '**',
-    component: OperationComponent,
+    component: ApplicationRatingComponent,
     data: { animation: 'apex' }
   }
 ];
 
 @NgModule({
-  declarations: [OperationComponent, ApplicationRatingComponent],
+  declarations: [ApplicationRatingComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -35,4 +32,4 @@ const routes: Routes = [
     NgbModule
   ]
 })
-export class OperationModule {}
+export class ApplicationRatingModule {}
