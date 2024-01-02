@@ -15,8 +15,10 @@
 }
 
 .btn-submit {
-    padding: 4px 10px !important;
-    text-align: right;
+    font-size: 12px;
+    width: 5rem;
+    padding: 2px 8px !important;
+    text-align: center;
     border: none;
     background-color: #1d4a84;
     color: white;
@@ -42,12 +44,12 @@
       padding: 10px 20px;
       text-align: left;
       border-bottom: 1px solid #ddd;
-      border-right: 3px solid #486c9b;
+      border-right: 2px solid #486c9b;
     }
     th {
       background-color: #1d4a84;
       color: white;
-      border-right: 3px solid #ffffff;
+      border-right: 2px solid #ffffff;
     }
     tr:hover {
       background-color: #bcbdbc !important;
@@ -64,7 +66,9 @@
     }
   }
   .select-btn {
-    padding: 2px 20px;
+    width: 5rem;
+    font-size: 12px;
+    padding: 1px 8px;
     margin-right: 5px;
     border-radius: 8px;
     cursor: pointer;
@@ -121,7 +125,7 @@
     .view-button {
         -webkit-text-stroke: 1px;
         font-size: 1.6rem;
-        color: #436898;
+        color: #0056b3;
     }
 
     .confirm-button {
@@ -148,7 +152,9 @@
   }
 
   .save-button {
-    padding: 2px 8px;
+    font-size: 12px;
+    width: 5rem;
+    padding: 1px 8px;
     margin-left: 1.2rem;
     margin-bottom: 4px;
     border-radius: 8px;
@@ -158,8 +164,10 @@
   }
 
   .btn-submit-reject {
-    padding: 4px 10px !important;
-    text-align: right;
+    font-size: 12px;
+    width: 5rem;
+    padding: 2px 8px !important;
+    text-align: center;
     border: none;
     background-color: #f21a1d;
     color: white;
