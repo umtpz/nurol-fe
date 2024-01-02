@@ -51,11 +51,11 @@
                     <i class="bi bi-file-earmark-text view-button"></i>
                   </button>
                   <td>
-                    <button class="confirm-btn" (click)="toggleConfirm(i)" style="border-left: 3px solid #ccc;">
+                    <button class="confirm-btn" (click)="toggleConfirm(i)" style="border-left: 2px solid #ccc;">
                         <i class="bi bi-check-lg confirm-button" style="padding-left: 1rem;"
                            [ngStyle]="{'color': document.confirmed ? '#14d314' : '#ccc'}"></i>
                     </button>
-                    <button class="reject-btn" (click)="toggleReject(i)" style="border-right: 3px solid #ccc;">
+                    <button class="reject-btn" (click)="toggleReject(i)" style="border-right: 2px solid #ccc;">
                         <i class="bi bi-x-lg reject-button" style="padding-right: 1rem;"
                            [ngStyle]="{'color': document.rejected ? '#ff1919' : '#ccc'}"></i>
                     </button>

@@ -112,6 +112,31 @@ input[type="checkbox"] {
     }
 }
 
+.vertical-table {
+    width: 100%;
+
+    tr {
+        width: 100%;
+    }
+
+    tr:nth-child(odd) {
+        background: #efefef;
+    }
+
+    th {
+        width: 50%;
+        color: #1c4a84;
+        padding: 2px 4px;
+        font-size: 12px;
+    }
+
+    td {
+        width: 50%;
+        padding: 4px 8px;
+        font-size: 13px;
+    }
+}
+
 .modal-header .close {
     transform: none !important;
     color: white !important;
@@ -202,18 +227,27 @@ select.form-control-sm {
   }
 
   .modal-dialog {
-    position: relative !important;
-    width: auto !important;;
-    pointer-events: none !important;;
-    transform: none !important;
-    transition: transform 0.3s ease-out !important;
-    display: flex !important;
-    justify-content: center !important;
+    position: relative;
+    width: auto;
+    pointer-events: none;
+    transform: none;
+    transition: transform 0.3s ease-out;
+    display: flex;
+    justify-content: center;
 }
 
   @media (min-width: 576px) {
     .modal-dialog {
-        max-width: 64.5rem !important;
-        margin: 1.75rem auto !important;
+        margin: 1.75rem auto;
+    }
+  }
+
+  .selection {
+    cursor: pointer;
+  
+    &.active-tab {
+      background-color: #1d4a84;
+      color: white;
+      border-color: #1d4a84;
     }
   }

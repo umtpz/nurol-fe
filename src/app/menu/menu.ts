@@ -127,21 +127,21 @@ export const menu: CoreMenu[] = [
         url: 'apps/settings'
       }]
   },
-  {
-    id: 'support',
-    type: 'section',
-    title: 'Destek',
-    icon: 'package',
-    children: [
-      {
-        id: 'chat',
-        title: 'Chat',
-        type: 'item',
-        icon: 'message-square',
-        url: 'apps/chat'
-      },
-    ]
-  },
+  // {
+  //   id: 'support',
+  //   type: 'section',
+  //   title: 'Destek',
+  //   icon: 'package',
+  //   children: [
+  //     {
+  //       id: 'chat',
+  //       title: 'Chat',
+  //       type: 'item',
+  //       icon: 'message-square',
+  //       url: 'apps/chat'
+  //     },
+  //   ]
+  // },
 
 
 

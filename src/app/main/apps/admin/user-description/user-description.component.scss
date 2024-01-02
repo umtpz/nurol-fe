@@ -6,12 +6,12 @@
       padding: 10px 20px;
       text-align: left;
       border-bottom: 1px solid #ddd;
-      border-right: 3px solid #486c9b;
+      border-right: 2px solid #486c9b;
     }
     th {
       background-color: #1d4a84;
       color: white;
-      border-right: 3px solid #ffffff;
+      border-right: 2px solid #ffffff;
     }
     tr:hover {
       background-color: #bcbdbc !important;
@@ -32,7 +32,10 @@
   }
   
   .update-btn, .activate-btn {
-    padding: 5px 10px;
+    width: 80px;
+    font-size: 12px;
+    text-align: center;
+    padding: 2px 8px;
     margin-right: 5px;
     border-radius: 8px;
     cursor: pointer;
@@ -90,8 +93,9 @@
     }
   
     .btn-submit {
-      padding: 4px 10px;
-      text-align: right;
+      padding: 2px 10px;
+      font-size: 13px;
+      text-align: center;
       border: none;
       background-color: #1d4a84;
       color: white;

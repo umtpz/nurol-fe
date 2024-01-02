@@ -88,169 +88,362 @@
     </div>
 
     <div *ngIf="selectedApplication" class="d-flex justify-content-center mt-2" style="gap: 16px">
-        <div class="selection">Müşteri Bilgileri</div>
-        <div class="selection">Sepet Bilgileri</div>
-        <div class="selection">GIB/Telco</div>
-        <div class="selection">KDS Sonucu</div>
-        <div class="selection">İlişkili Başvurular</div>
-        <div class="selection" data-toggle="modal" data-target="#decisionModal" (click)="open(mymodal)">
-            Karar
+        <div class="selection" [ngClass]="{'active-tab': activeTab === 'customerInfo'}" (click)="setActiveTab('customerInfo')">Müşteri Bilgileri</div>
+        <div class="selection" [ngClass]="{'active-tab': activeTab === 'basketInfo'}" (click)="setActiveTab('basketInfo')">Sepet Bilgileri</div>
+        <div class="selection" [ngClass]="{'active-tab': activeTab === 'gibTelco'}" (click)="setActiveTab('gibTelco')">GIB/Telco</div>
+        <div class="selection" [ngClass]="{'active-tab': activeTab === 'kdsResult'}" (click)="setActiveTab('kdsResult')">KDS Sonucu</div>
+        <div class="selection" [ngClass]="{'active-tab': activeTab === 'relatedRef'}" (click)="setActiveTab('relatedRef')">İlişkili Başvurular</div>
+        <div class="selection" [ngClass]="{'active-tab': activeTab === 'decision'}" (click)="setActiveTab('decision')">Karar</div>
+    </div>
+
+    <!-- Customer information table -->
+    <div class="mt-3" style="width: 100%; display: flex; justify-content: center;" *ngIf="activeTab === 'customerInfo'">
+        <div class="col-10 d-flex" style="gap: 2rem;" *ngFor="let details of customerDetailsData">
+            <div style="flex: 1; border: solid 2px #ddd;">
+                <table class="vertical-table">
+                    <tr>
+                        <th>Ad Soyad</th>
+                        <td>{{ details.fullName }}</td>
+                    </tr>
+                    <tr>
+                        <th>TC Kimlik No</th>
+                        <td>{{ details.identityNumber }}</td>
+                    </tr>
+                    <tr>
+                        <th>Doğum Tarihi</th>
+                        <td>{{ details.birthDate }}</td>
+                    </tr>
+                    <tr>
+                        <th>Anne Kızlık Soyadı</th>
+                        <td>{{ details.motherMaidenName }}</td>
+                    </tr>
+                    <tr>
+                        <th>Kimlik Numarası</th>
+                        <td>{{ details.identitySerialNumber }}</td>
+                    </tr>
+                    <tr>
+                        <th>Cep Telefonu</th>
+                        <td>{{ details.mobilePhone }}</td>
+                    </tr>
+                    <tr>
+                        <th>E-Posta Adresi</th>
+                        <td>{{ details.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Çalışma Şekli</th>
+                        <td>{{ details.workType }}</td>
+                    </tr>
+                    <tr>
+                        <th>Meslek</th>
+                        <td>{{ details.occupation }}</td>
+                    </tr>
+                    <tr>
+                        <th>Eğitim Durumu</th>
+                        <td>{{ details.educationStatus }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div style="flex: 1; border: solid 2px #ddd;">
+                <table class="vertical-table">
+                    <tr>
+                        <th>İşyeri Adı</th>
+                        <td>{{ details.workplaceName }}</td>
+                    </tr>
+                    <tr>
+                        <th>İşyeri Vergi Kimlik No</th>
+                        <td>{{ details.workplaceTaxId }}</td>
+                    </tr>
+                    <tr>
+                        <th>Aylık Net Gelir</th>
+                        <td>{{ details.monthlyIncome }}</td>
+                    </tr>
+                    <tr>
+                        <th>İşyeri Adresi</th>
+                        <td>{{ details.workplaceAddress }}</td>
+                    </tr>
+                    <tr>
+                        <th>İşyeri İl</th>
+                        <td>{{ details.workplaceCity }}</td>
+                    </tr>
+                    <tr>
+                        <th>İşyeri İlçe</th>
+                        <td>{{ details.workplaceDistrict }}</td>
+                    </tr>
+                    <tr>
+                        <th>İşyeri Telefonu</th>
+                        <td>{{ details.workplacePhone }}</td>
+                    </tr>
+                    <tr>
+                        <th>Son İşyerinde Çalışma Süresi</th>
+                        <td>{{ details.employmentDuration }}</td>
+                    </tr>
+                    <tr>
+                        <th>Ev Sahipliği</th>
+                        <td>{{ details.homeOwnership }}</td>
+                    </tr>
+                    <tr>
+                        <th>Teslimat Adresi</th>
+                        <td>{{ details.deliveryAddress }}</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
+
+    <!-- Basket information table -->
+    <div class="mt-3" style="width: 100%; display: flex; justify-content: center;" *ngIf="activeTab === 'basketInfo'">
+        <div class="col-10 d-flex justify-content-center" style="gap: 2rem;">
+            <ng-container *ngIf="selectedApplication">
+                <ng-container *ngFor="let details of basketDetailsData">
+                    <ng-container *ngIf="details.applicationNumber === selectedApplication.applicationNumber">
+
+                        <ng-container *ngIf="details.financeType === 'SecondHandVehicle'">
+                            <div style="width: 65%; border: solid 2px #ddd;">
+                                <table class="vertical-table">
+                                    <tr>
+                                        <th>Marka</th>
+                                        <td>{{ details.brand }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Ürün Kategorisi</th>
+                                        <td>{{ details.productCategory }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Ürün</th>
+                                        <td>{{ details.product }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Satış Tutarı</th>
+                                        <td>{{ details.salePrice }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Adet</th>
+                                        <td>{{ details.quantity }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Toplam Satış Tutarı</th>
+                                        <td>{{ details.totalSalePrice }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Yıl</th>
+                                        <td>{{ details.year }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Plaka</th>
+                                        <td>{{ details.plate }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>KM</th>
+                                        <td>{{ details.mileage }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Konsinye mi?</th>
+                                        <td>{{ details.consignment }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Şasi No</th>
+                                        <td>{{ details.chassisNumber }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Kasko Değeri</th>
+                                        <td>{{ details.insuranceValue }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Kullanım Amacı</th>
+                                        <td>{{ details.endUse }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tramer Hasar Değeri</th>
+                                        <td>{{ details.tramerDamageValue }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </ng-container>
+            
+                         <!-- Need -->
+                         <ng-container *ngIf="details.financeType === 'Need'">
+                            <!-- Marka, Ürün Kategorisi, Ürün ve Toplam Satış Tutarı için tablo -->
+                            <div class="product-details-container">
+                              <table class="vertical-table">
+                                <tr>
+                                  <th>Marka</th>
+                                  <td>{{ details.brand }}</td>
+                                </tr>
+                                <tr>
+                                  <th>Ürün Kategorisi</th>
+                                  <td>{{ details.productCategory }}</td>
+                                </tr>
+                                <tr>
+                                  <th>Ürün</th>
+                                  <td>{{ details.product }}</td>
+                                </tr>
+                                <tr>
+                                  <th>Toplam Satış Tutarı</th>
+                                  <td>{{ details.totalSalePrice }}</td>
+                                </tr>
+                              </table>
+                            </div>
+                          
+                            <!-- Ürün listesi -->
+                            <div class="product-list-container">
+                              <!-- Örnek statik ürün listesi, dinamik verilere göre değiştirilebilir -->
+                              <div class="product-list-item">Buzdolabı | 1 x 25.000 TL | 25.000 TL</div>
+                              <div class="product-list-item">Klima | 2 x 10.000 TL | 20.000 TL</div>
+                              <div class="product-list-total">TOPLAM | {{ details.totalSalePrice }}</div>
+                            </div>
+                          </ng-container>
+
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+
+    <!-- Decision Tab -->
+    <div class="mt-3" style="width: 100%; display: flex; justify-content: center;" *ngIf="activeTab === 'decision'">
+        <div class="col-10 d-flex flex-column align-items-center" style="gap: 2rem;" >
+            <div>
+                <fieldset class="fraud-suspect">
+                    <legend style="font-size: 1rem">
+                        Fraud Şüphesi
+                        <input type="checkbox" [(ngModel)]="selectedApplication.fraudSuspicion" class="modal-checkbox"/>
+                    </legend>
+                    <div class="form-row">
+                        <div class="form-group col-md-4" style="margin-bottom: 0; padding-bottom: 0">
+                            <select class="form-control form-control-sm" style="margin-left: 1rem;">
+                                <option value="" disabled selected>Fraud Kararı</option>
+                                <option value="1">1. Fraud Var</option>
+                                <option value="2">2. Şüpheli</option>
+                                <option value="3">3. Fraud Yok</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+        
+                <fieldset class="product-verification" style="margin-top: 1rem;">
+                    <legend style="font-size: 1rem">
+                        Ürün Doğrulama
+                        <input type="checkbox" [(ngModel)]="selectedApplication.productVerification"
+                            class="modal-checkbox" />
+                    </legend>
+                    <div class="col-10 d-flex justify-content-between inputs" style="gap: 1.3rem">
+                        <div style="flex: 1">
+                            <select class="form-control form-control-sm">
+                                <option value="" disabled selected>Müşteriye ulaşıldı mı?</option>
+                                <option value="1">1. Ulaşıldı</option>
+                                <option value="2">2. Ulaşılamadı</option>
+                            </select>
+        
+                            <select class="form-control form-control-sm">
+                                <option value="" disabled selected>Erken teslim nedeni</option>
+                                <option value="1">1. Stoktan Satış</option>
+                                <option value="2">2. Teşhir Ürünü</option>
+                                <option value="3">3. Teslimat Tarihi hatalı girilmiş</option>
+                                <option value="4">4. Gerçek satış olmama şüphesi</option>
+                            </select>
+        
+                            <select class="form-control form-control-sm">
+                                <option value="" disabled selected>
+                                    Teslimat yapılamama nedeni
+                                </option>
+                                <option value="1">
+                                    1. Müşteri nakliyeyi kendisi yapacak - Büyük Eşya
+                                </option>
+                                <option value="2">
+                                    2. Müşteri nakliyeyi kendisi yapacak - Küçük Eşya
+                                </option>
+                            </select>
+        
+                            <select class="form-control form-control-sm">
+                                <option value="" disabled selected>
+                                    Sepet bilgileri doğru mu?
+                                </option>
+                                <option value="1">1 - Evet</option>
+                                <option value="2">2 - Hayır</option>
+                            </select>
+                        </div>
+        
+                        <div style="flex: 1">
+                            <select class="form-control form-control-sm">
+                                <option value="" disabled selected>Ulaşılamama sebebi</option>
+                                <option value="1">1. Telefonlara cevap verilmiyor</option>
+                                <option value="2">2. Meşgul</option>
+                                <option value="3">3. Telesekreter çıkıyor</option>
+                                <option value="4">4. Numara hatalı/arızalı</option>
+                            </select>
+        
+                            <select class="form-control form-control-sm">
+                                <option value="" disabled selected>Geç teslim nedeni</option>
+                                <option value="1">1. Nişan/Düğün</option>
+                                <option value="2">2. Özel Sipariş</option>
+                                <option value="3">3. Ön Sipariş</option>
+                                <option value="4">4. Teslimat Tarihi hatalı girilmiş</option>
+                                <option value="5">5. Gerçek satış olmama şüphesi</option>
+                            </select>
+        
+                            <select class="form-control form-control-sm">
+                                <option value="" disabled selected>
+                                    Teslimat adresi farklı mı?
+                                </option>
+                                <option value="1">1. Evet</option>
+                                <option value="2">2. Hayır</option>
+                                <option value="3">3. Teslimat Yapılmıyor</option>
+                            </select>
+        
+                            <select class="form-control form-control-sm">
+                                <option value="" disabled selected>Sepet tutarı doğru mu?</option>
+                                <option value="1">1 - Evet</option>
+                                <option value="2">2 - Hayır</option>
+                            </select>
+                        </div>
+        
+                        <div style="flex: 1">
+                            <select class="form-control form-control-sm">
+                                <option value="" disabled selected>
+                                    Satın alma doğrulandı mı?
+                                </option>
+                                <option value="1">1. Başvurusu yok</option>
+                                <option value="2">
+                                    2. Müşteri ürün detaylarını paylaşmak istemiyor
+                                </option>
+                                <option value="3">3. Müşteri alımdan vazgeçmiş</option>
+                            </select>
+        
+                            <select class="form-control form-control-sm">
+                                <option value="" disabled selected>Ürün kime alınıyor?</option>
+                                <option value="1">
+                                    1. Aile İçi alım (Anne, baba, çocuk, kardeş)
+                                </option>
+                                <option value="2">2. Diğer akrabaya alınıyor</option>
+                                <option value="3">3. Müşteriye alınıyor</option>
+                                <option value="4">4. Nişanlıya alınıyor</option>
+                                <option value="5">5. Diğer (arkadaş, komşu vs.)</option>
+                            </select>
+        
+                            <select class="form-control form-control-sm">
+                                <option value="" disabled selected>
+                                    Adres farklılığı sebebi
+                                </option>
+                                <option value="1">1. Nişan/Düğün</option>
+                                <option value="2">2. Aileden Birine Hediye</option>
+                                <option value="3">3. Taşınma-Kendi Adresim</option>
+                                <option value="4">4. Kişinin İşyerine Alım</option>
+                                <option value="5">5. Yazlık</option>
+                                <option value="6">
+                                    6. İkinci Ev (müşteriye ait başka bir ev)
+                                </option>
+                                <option value="7">7. Diğer</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+   <!-- Back Button -->
+   <div *ngIf="shouldShowBackButton()" class="col-10 d-flex justify-content-end mt-3">
+    <button class="action-button" (click)="setActiveTab(null)">Geri</button>
+  </div>
+
 </div>
-
-<!-- Decision Modal -->
-<ng-template #mymodal let-modal>
-        <div class="modal-header">
-            <h5 class="modal-title" id="decisionModalLabel">Karar</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                (click)="modal.close('Save click')">
-                <span aria-hidden="true">x</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <!-- Modal content -->
-            <fieldset class="fraud-suspect">
-                <legend style="font-size: 1rem">
-                    Fraud Şüphesi
-                    <input type="checkbox" [(ngModel)]="selectedApplication.fraudSuspicion" class="modal-checkbox"/>
-                </legend>
-                <div class="form-row">
-                    <div class="form-group col-md-4" style="margin-bottom: 0; padding-bottom: 0">
-                        <select class="form-control form-control-sm" style="margin-left: 1rem;">
-                            <option value="" disabled selected>Fraud Kararı</option>
-                            <option value="1">1. Fraud Var</option>
-                            <option value="2">2. Şüpheli</option>
-                            <option value="3">3. Fraud Yok</option>
-                        </select>
-                    </div>
-                </div>
-            </fieldset>
-
-            <fieldset class="product-verification" style="margin-top: 1rem;">
-                <legend style="font-size: 1rem">
-                    Ürün Doğrulama
-                    <input type="checkbox" [(ngModel)]="selectedApplication.productVerification"
-                        class="modal-checkbox" />
-                </legend>
-                <div class="col-10 d-flex justify-content-between inputs" style="gap: 1.3rem">
-                    <div style="flex: 1">
-                        <select class="form-control form-control-sm">
-                            <option value="" disabled selected>Müşteriye ulaşıldı mı?</option>
-                            <option value="1">1. Ulaşıldı</option>
-                            <option value="2">2. Ulaşılamadı</option>
-                        </select>
-
-                        <select class="form-control form-control-sm">
-                            <option value="" disabled selected>Erken teslim nedeni</option>
-                            <option value="1">1. Stoktan Satış</option>
-                            <option value="2">2. Teşhir Ürünü</option>
-                            <option value="3">3. Teslimat Tarihi hatalı girilmiş</option>
-                            <option value="4">4. Gerçek satış olmama şüphesi</option>
-                        </select>
-
-                        <select class="form-control form-control-sm">
-                            <option value="" disabled selected>
-                                Teslimat yapılamama nedeni
-                            </option>
-                            <option value="1">
-                                1. Müşteri nakliyeyi kendisi yapacak - Büyük Eşya
-                            </option>
-                            <option value="2">
-                                2. Müşteri nakliyeyi kendisi yapacak - Küçük Eşya
-                            </option>
-                        </select>
-
-                        <select class="form-control form-control-sm">
-                            <option value="" disabled selected>
-                                Sepet bilgileri doğru mu?
-                            </option>
-                            <option value="1">1 - Evet</option>
-                            <option value="2">2 - Hayır</option>
-                        </select>
-                    </div>
-
-                    <div style="flex: 1">
-                        <select class="form-control form-control-sm">
-                            <option value="" disabled selected>Ulaşılamama sebebi</option>
-                            <option value="1">1. Telefonlara cevap verilmiyor</option>
-                            <option value="2">2. Meşgul</option>
-                            <option value="3">3. Telesekreter çıkıyor</option>
-                            <option value="4">4. Numara hatalı/arızalı</option>
-                        </select>
-
-                        <select class="form-control form-control-sm">
-                            <option value="" disabled selected>Geç teslim nedeni</option>
-                            <option value="1">1. Nişan/Düğün</option>
-                            <option value="2">2. Özel Sipariş</option>
-                            <option value="3">3. Ön Sipariş</option>
-                            <option value="4">4. Teslimat Tarihi hatalı girilmiş</option>
-                            <option value="5">5. Gerçek satış olmama şüphesi</option>
-                        </select>
-
-                        <select class="form-control form-control-sm">
-                            <option value="" disabled selected>
-                                Teslimat adresi farklı mı?
-                            </option>
-                            <option value="1">1. Evet</option>
-                            <option value="2">2. Hayır</option>
-                            <option value="3">3. Teslimat Yapılmıyor</option>
-                        </select>
-
-                        <select class="form-control form-control-sm">
-                            <option value="" disabled selected>Sepet tutarı doğru mu?</option>
-                            <option value="1">1 - Evet</option>
-                            <option value="2">2 - Hayır</option>
-                        </select>
-                    </div>
-
-                    <div style="flex: 1">
-                        <select class="form-control form-control-sm">
-                            <option value="" disabled selected>
-                                Satın alma doğrulandı mı?
-                            </option>
-                            <option value="1">1. Başvurusu yok</option>
-                            <option value="2">
-                                2. Müşteri ürün detaylarını paylaşmak istemiyor
-                            </option>
-                            <option value="3">3. Müşteri alımdan vazgeçmiş</option>
-                        </select>
-
-                        <select class="form-control form-control-sm">
-                            <option value="" disabled selected>Ürün kime alınıyor?</option>
-                            <option value="1">
-                                1. Aile İçi alım (Anne, baba, çocuk, kardeş)
-                            </option>
-                            <option value="2">2. Diğer akrabaya alınıyor</option>
-                            <option value="3">3. Müşteriye alınıyor</option>
-                            <option value="4">4. Nişanlıya alınıyor</option>
-                            <option value="5">5. Diğer (arkadaş, komşu vs.)</option>
-                        </select>
-
-                        <select class="form-control form-control-sm">
-                            <option value="" disabled selected>
-                                Adres farklılığı sebebi
-                            </option>
-                            <option value="1">1. Nişan/Düğün</option>
-                            <option value="2">2. Aileden Birine Hediye</option>
-                            <option value="3">3. Taşınma-Kendi Adresim</option>
-                            <option value="4">4. Kişinin İşyerine Alım</option>
-                            <option value="5">5. Yazlık</option>
-                            <option value="6">
-                                6. İkinci Ev (müşteriye ait başka bir ev)
-                            </option>
-                            <option value="7">7. Diğer</option>
-                        </select>
-                    </div>
-                </div>
-            </fieldset>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modal.close('Save click')" style="padding: 0rem;">
-                Kapat
-            </button>
-            <button type="button" class="btn btn-primary" (click)="modal.close('Save click')" style="padding: 0rem;">
-                Kaydet
-            </button>
-        </div>
-</ng-template>
