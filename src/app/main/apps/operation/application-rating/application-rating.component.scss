@@ -1,0 +1,157 @@
+::placeholder {
+    color: black !important;
+    opacity: 1;
+}
+
+::-ms-input-placeholder {
+    /* Edge 12 -18 */
+    color: black !important;
+}
+
+select {
+    font-size: 12px;
+    width: 250px;
+    height: 2.5rem;
+    line-height: 0;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    /** for the dropdown indicator */
+    appearance: none;
+    background: url('../../../../../assets/images/icons/chevrons-down.svg') no-repeat scroll 97% center/1px auto;
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.32em;
+    margin-bottom: 16px;
+    background-color: white;
+}
+
+.selection {
+    background: #1c4a84;
+    color: white;
+    padding: 4px 24px;
+    font-size: 12px;
+    border-radius: 8px;
+    border: solid 2px #1c4a84;
+    display: flex;
+    align-items: center;
+}
+
+.selection:hover {
+    opacity: .7;
+    cursor: pointer;
+}
+
+button {
+    width: 80px;
+    text-align: center;
+    padding: 2px 8px;
+    background-color: #1c4a84;
+    border: none;
+    font-size: 12px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #0056b3;
+    }
+}
+
+.inputs {
+
+    input {
+        font-size: 12px;
+        margin-bottom: 16px;
+        width: 100%;
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+        border-radius: 16px;
+    }
+}
+
+.results-table {
+    border-bottom: solid 2px #efefef;
+    padding: 0;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        td {
+            border-right: 2px solid #1c4a84;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            border-right: 2px solid #efefef;
+            background: #1c4a84;
+            color: white;
+            padding: 4px 16px 12px 8px;
+        }
+    }
+}
+
+.application-number {
+    background: #e5e5e5;
+    color: #1c4a84;
+    padding: 8px 16px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.table {
+    tr:nth-child(odd) {
+        background: #efefef;
+    }
+}
+
+.vertical-table {
+    width: 100%;
+
+    tr {
+        width: 100%;
+    }
+
+    tr:nth-child(odd) {
+        background: #efefef;
+    }
+
+    th {
+        width: 50%;
+        color: #1c4a84;
+        padding: 2px 4px;
+        font-size: 12px;
+    }
+
+    td {
+        width: 50%;
+        padding: 4px 8px;
+        font-size: 13px;
+    }
+}
+
+a {
+    background: #ddd;
+    padding: 4px 8px;
+    color: cornflowerblue;
+    font-size: 13px;
+}
+
+.decision-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(255,255,255,.8);
+}
+
+.big-button{
+    flex: 1;
+    height: 32px;
+    padding: 4px 16px;
+    font-size: 16px;
+    border-radius: 16px;
+}

@@ -9,7 +9,7 @@
 <!-- APP-CONTENT -->
 <div class="app-content content">
   <div class="content-overlay"></div>
-  <div class="header-navbar-shadow" *ngIf="!coreConfig.layout.navbar.hidden"></div>
+  <div class="header-navbar-shadow" *ngIf="!coreConfig.layout.navbar.hidden && false"></div>
   <!-- CONTENT -->
   <content></content>
   <!--/ CONTENT -->
@@ -25,7 +25,7 @@
 <!-- NAVBAR -->
 <ng-template #navbar>
   <app-navbar
-    *ngIf="!coreConfig.layout.navbar.hidden"
+    *ngIf="!coreConfig.layout.navbar.hidden && false"
     [ngClass]="[
       coreConfig.layout.navbar.customBackgroundColor === true
         ? coreConfig.layout.navbar.background +

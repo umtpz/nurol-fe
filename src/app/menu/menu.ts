@@ -32,6 +32,13 @@ export const menu: CoreMenu[] = [
             url: 'apps/application-review'
           },
           {
+            id: 'req-rating',
+            title: 'Başvuru Değerlendirme',
+            type: 'item',
+            icon: 'circle',
+            url: 'apps/application-rating'
+          },
+          {
             id: 'customer-tracking',
             title: 'Müşteri Gözlem',
             type: 'item',
@@ -139,6 +146,13 @@ export const menu: CoreMenu[] = [
         type: 'item',
         icon: 'message-square',
         url: 'apps/chat'
+      },
+      {
+        id: 'logout',
+        title: 'Çıkış',
+        type: 'item',
+        icon: 'log-out',
+        url: 'pages/authentication/logout'
       },
     ]
   },

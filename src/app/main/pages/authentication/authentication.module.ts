@@ -18,6 +18,7 @@ import { AuthRegisterV2Component } from 'app/main/pages/authentication/auth-regi
 
 import { AuthResetPasswordV1Component } from 'app/main/pages/authentication/auth-reset-password-v1/auth-reset-password-v1.component';
 import { AuthResetPasswordV2Component } from 'app/main/pages/authentication/auth-reset-password-v2/auth-reset-password-v2.component';
+import { LogoutComponent } from './logout/logout.component';
 
 // routing
 const routes: Routes = [
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path: 'authentication/forgot-password-v2',
     component: AuthForgotPasswordV2Component
+  },
+  {
+    path: 'authentication/logout',
+    component: LogoutComponent
   }
 ];
 
@@ -64,7 +69,8 @@ const routes: Routes = [
     AuthForgotPasswordV1Component,
     AuthForgotPasswordV2Component,
     AuthResetPasswordV1Component,
-    AuthResetPasswordV2Component
+    AuthResetPasswordV2Component,
+    LogoutComponent
   ],
   imports: [CommonModule, RouterModule.forChild(routes), NgbModule, FormsModule, ReactiveFormsModule, CoreCommonModule]
 })
